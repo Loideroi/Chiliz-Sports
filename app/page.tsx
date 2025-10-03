@@ -202,9 +202,9 @@ export default function Home() {
 
             <div className="flex animate-scroll-testimonials gap-8">
               {[...testimonials, ...testimonials].map((testimonial, index) => (
-                <div key={index} className="flex-shrink-0 w-[320px] md:w-[380px] bg-primary-purple rounded-lg p-6">
+                <div key={index} className="flex-shrink-0 w-[320px] md:w-[380px] bg-primary-purple rounded-lg overflow-hidden">
                   {/* Portrait Image */}
-                  <div className="relative aspect-square mb-4 rounded-lg overflow-hidden w-32 h-32 mx-auto">
+                  <div className="relative aspect-video w-full">
                     <Image
                       src={`/portrait-${(index % testimonials.length) + 1}.png`}
                       alt={`${testimonial.author} portrait`}
@@ -213,11 +213,13 @@ export default function Home() {
                     />
                   </div>
 
-                  <div className="text-accent-pink text-4xl mb-4">&ldquo;</div>
-                  <p className="text-sm mb-4 min-h-[120px]">{testimonial.quote}</p>
-                  <div className="mt-4">
-                    <p className="font-semibold">{testimonial.author}</p>
-                    {testimonial.role && <p className="text-sm text-neutral-gray-light">{testimonial.role}</p>}
+                  <div className="p-6">
+                    <div className="text-accent-pink text-4xl mb-4">&ldquo;</div>
+                    <p className="text-sm mb-4 min-h-[120px]">{testimonial.quote}</p>
+                    <div className="mt-4">
+                      <p className="font-semibold">{testimonial.author}</p>
+                      {testimonial.role && <p className="text-sm text-neutral-gray-light">{testimonial.role}</p>}
+                    </div>
                   </div>
                 </div>
               ))}
