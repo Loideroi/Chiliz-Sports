@@ -168,11 +168,14 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {testimonials.map((testimonial, index) => (
               <div key={index} className="bg-primary-purple rounded-lg p-6">
-                {/* Portrait Image Placeholder */}
-                <div className="image-placeholder aspect-square mb-4 rounded-full overflow-hidden w-24 h-24 mx-auto">
-                  <div className="text-white text-xs font-bold">
-                    PORTRAIT-{index + 1}
-                  </div>
+                {/* Portrait Image */}
+                <div className="relative aspect-square mb-4 rounded-full overflow-hidden w-24 h-24 mx-auto">
+                  <Image
+                    src={`/portrait-${index + 1}.png`}
+                    alt={`${testimonial.author} portrait`}
+                    fill
+                    className="object-cover"
+                  />
                 </div>
 
                 <div className="text-accent-pink text-4xl mb-4">&ldquo;</div>
@@ -220,10 +223,13 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {caseStudies.map((caseStudy, index) => (
               <div key={index} className="bg-primary-purple rounded-lg overflow-hidden">
-                <div className="image-placeholder aspect-video">
-                  <div className="text-white text-lg font-bold">
-                    CASE-STUDY-{index + 1}
-                  </div>
+                <div className="relative aspect-video">
+                  <Image
+                    src={`/case-study-${index + 1}.png`}
+                    alt={caseStudy.title}
+                    fill
+                    className="object-cover"
+                  />
                 </div>
                 <div className="p-6">
                   <h3 className="heading-3 mb-2">{caseStudy.title}</h3>
