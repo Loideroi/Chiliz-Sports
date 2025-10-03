@@ -81,11 +81,14 @@ export default function Home() {
         </div>
 
         <div className="relative z-10 container-custom text-center">
-          <h1 className="heading-hero mb-6">
-            chiliz sports
+          <h1 className="heading-hero mb-4">
+            Chiliz Sports
           </h1>
-          <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-            When Access Matters, We&apos;re Already Inside.
+          <h2 className="text-2xl md:text-3xl font-semibold mb-6">
+            Get The Winning Perspective
+          </h2>
+          <p className="text-base md:text-lg mb-8 max-w-3xl mx-auto leading-relaxed">
+            When Access Matters, We&apos;re Already Inside. Sports sponsorship isn&apos;t about luck. It&apos;s about knowing who to call, what to say, and how to close. At Chiliz Sports, we&apos;ve sat on your side of the table, so we know the risks, the shortcuts, and the people who actually move the needle. Tap into insider knowledge, real connections, and proven experience to secure partnerships that elevate your brand.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact" className="btn-primary">
@@ -104,16 +107,16 @@ export default function Home() {
           <h2 className="heading-2 text-center mb-4">
             Tap Our Sports Network
           </h2>
-          <p className="text-center mb-12 max-w-3xl mx-auto">
-            We don&apos;t work with one niche or category. From global brands to clubs, athletes, and influencers, we thrive on variety.
+          <p className="text-center mb-12 max-w-3xl mx-auto text-lg">
+            We work with 70+ of the biggest names in sport.
           </p>
 
           <div className="mb-8">
             <EmblemCarousel />
           </div>
 
-          <p className="text-center text-sm text-neutral-gray-light max-w-4xl mx-auto">
-            Leverage our deep connections to the sports space we&apos;ve spent years carving out. Our network covers multiple major sports. Find a demographic. We&apos;ll help you activate.
+          <p className="text-center text-neutral-gray-light max-w-4xl mx-auto">
+            Leverage our deep connections to the industry&apos;s commercial leaders, gain direct access to rights and talent, and realise the true business potential of every sports partnership.
           </p>
         </div>
       </section>
