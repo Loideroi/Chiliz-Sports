@@ -3,9 +3,9 @@ export const metadata = {
 }
 
 export default function CookiesPolicy() {
-  // Redirect to Chiliz privacy policy (cookies section)
+  // Redirect to Chiliz cookies policy
   if (typeof window !== 'undefined') {
-    window.location.href = 'https://www.chiliz.com/privacy-policy/'
+    window.location.href = 'https://www.chiliz.com/cookies-policy/'
   }
 
   return (
@@ -18,7 +18,7 @@ export default function CookiesPolicy() {
             <p>
               If you are not redirected automatically, please{' '}
               <a
-                href="https://www.chiliz.com/privacy-policy/"
+                href="https://www.chiliz.com/cookies-policy/"
                 className="text-accent-pink hover:underline"
                 target="_blank"
                 rel="noopener noreferrer"
