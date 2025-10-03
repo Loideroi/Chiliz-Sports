@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import MobileMenu from './MobileMenu'
 
@@ -23,13 +24,14 @@ export default function Header() {
         <nav className="container-custom py-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <Link href="/" className="flex items-center space-x-2">
-              <div className="text-accent-pink text-3xl font-bold">
-                <span className="inline-block transform -skew-x-12">)</span>
-              </div>
-              <span className="text-white text-xl font-bold">
-                chiliz <span className="font-light">sports</span>
-              </span>
+            <Link href="/" className="flex items-center">
+              <Image
+                src="/chiliz-sports-logo.svg"
+                alt="Chiliz Sports"
+                width={180}
+                height={40}
+                priority
+              />
             </Link>
 
             {/* Desktop Navigation */}

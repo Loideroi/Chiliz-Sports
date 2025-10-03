@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 
 interface MobileMenuProps {
@@ -33,13 +34,14 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           <div className="flex flex-col h-full">
             {/* Header */}
             <div className="flex items-center justify-between p-6">
-              <Link href="/" className="flex items-center space-x-2" onClick={onClose}>
-                <div className="text-accent-pink text-3xl font-bold">
-                  <span className="inline-block transform -skew-x-12">)</span>
-                </div>
-                <span className="text-white text-xl font-bold">
-                  chiliz <span className="font-light">sports</span>
-                </span>
+              <Link href="/" className="flex items-center" onClick={onClose}>
+                <Image
+                  src="/chiliz-sports-logo.svg"
+                  alt="Chiliz Sports"
+                  width={180}
+                  height={40}
+                  priority
+                />
               </Link>
               <button
                 onClick={onClose}

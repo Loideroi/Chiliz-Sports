@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -9,13 +10,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Logo and Brand */}
           <div>
-            <Link href="/" className="flex items-center space-x-2 mb-4">
-              <div className="text-accent-pink text-3xl font-bold">
-                <span className="inline-block transform -skew-x-12">)</span>
-              </div>
-              <span className="text-white text-xl font-bold">
-                chiliz <span className="font-light">sports</span>
-              </span>
+            <Link href="/" className="flex items-center mb-4">
+              <Image
+                src="/chiliz-sports-logo.svg"
+                alt="Chiliz Sports"
+                width={180}
+                height={40}
+              />
             </Link>
             <p className="text-neutral-gray-light text-sm">
               When Access Matters, We&apos;re Already Inside.
