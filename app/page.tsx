@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import ContactForm from '@/components/ContactForm'
+import EmblemCarousel from '@/components/EmblemCarousel'
 
 export default function Home() {
   const sportsIcons = [
@@ -107,15 +108,8 @@ export default function Home() {
             We don&apos;t work with one niche or category. From global brands to clubs, athletes, and influencers, we thrive on variety.
           </p>
 
-          <div className="grid grid-cols-4 md:grid-cols-8 gap-6 mb-8">
-            {sportsIcons.map((sport) => (
-              <div key={sport.name} className="flex flex-col items-center">
-                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-primary-purple-light border-2 border-accent-pink flex items-center justify-center text-3xl md:text-4xl mb-2">
-                  {sport.icon}
-                </div>
-                <span className="text-xs text-center">{sport.name}</span>
-              </div>
-            ))}
+          <div className="mb-8">
+            <EmblemCarousel />
           </div>
 
           <p className="text-center text-sm text-neutral-gray-light max-w-4xl mx-auto">
