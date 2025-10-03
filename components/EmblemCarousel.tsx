@@ -5,6 +5,7 @@ import Image from 'next/image'
 export default function EmblemCarousel() {
   const emblems = [
     { name: 'AC Milan', src: '/emblems/acm.png' },
+    { name: 'Arsenal', src: '/emblems/afc.png' },
     { name: 'Barcelona', src: '/emblems/bar.png' },
     { name: 'Inter Milan', src: '/emblems/int.png' },
     { name: 'Juventus', src: '/emblems/juv.png' },
