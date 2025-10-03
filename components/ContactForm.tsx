@@ -95,7 +95,7 @@ export default function ContactForm() {
             className="mt-1 mr-3 w-4 h-4 accent-accent-pink"
           />
           <label htmlFor="agreeToTerms" className="text-sm text-neutral-gray-light">
-            Yes, I'd like to receive documentation and stay updated on the latest news, offers, and news. I can unsubscribe anytime. For more details, see our{' '}
+            Yes, I&apos;d like to receive documentation and stay updated on the latest news, offers, and news. I can unsubscribe anytime. For more details, see our{' '}
             <a href="/privacy-policy" className="text-accent-pink hover:underline">
               privacy policy
             </a>
