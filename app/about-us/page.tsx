@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import ContactForm from '@/components/ContactForm'
 
 export default function AboutUs() {
@@ -94,10 +95,13 @@ export default function AboutUs() {
                 <div className="flex-1">
                   <p className="text-neutral-gray-light mb-6">{testimonial.quote}</p>
                   <div className="flex items-center gap-4">
-                    <div className="image-placeholder w-16 h-16 rounded-full flex-shrink-0">
-                      <div className="text-white text-xs font-bold">
-                        PORTRAIT-{index + 5}
-                      </div>
+                    <div className="relative w-16 h-16 rounded-full flex-shrink-0 overflow-hidden">
+                      <Image
+                        src={`/portrait-${index + 5}.png`}
+                        alt={`${testimonial.author} portrait`}
+                        fill
+                        className="object-cover"
+                      />
                     </div>
                     <div>
                       <p className="font-semibold">{testimonial.author}</p>
