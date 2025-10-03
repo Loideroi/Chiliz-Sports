@@ -186,15 +186,22 @@ export default function WhatWeOffer() {
 
       {/* Contact Form Section */}
       <section className="section-padding">
-        <div className="container-custom max-w-4xl">
-          <h2 className="heading-1 mb-4">
-            Ready to Activate?
-          </h2>
-          <p className="text-neutral-gray-light mb-12">
-            We know the global sports landscape inside out and we&apos;ll help you turn sponsorship into a smart, measurable, and inspiring brand move.
-          </p>
+        <div className="container-custom">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            <div>
+              <p className="text-accent-pink text-sm font-semibold mb-2">CONTACT US</p>
+              <h2 className="heading-1 mb-4">
+                Ready to Activate?
+              </h2>
+              <p className="text-neutral-gray-light mb-8">
+                We know the global sports landscape inside out and we&apos;ll help you turn sponsorship into a smart, measurable, and inspiring brand move.
+              </p>
+            </div>
 
-          <ContactForm />
+            <div>
+              <ContactForm showHeading={false} />
+            </div>
+          </div>
         </div>
       </section>
     </>
