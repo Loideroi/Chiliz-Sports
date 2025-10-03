@@ -41,15 +41,18 @@ export default function Home() {
   const caseStudies = [
     {
       title: "Inter announce Socios.com as new front of shirt partner",
-      description: "Inter announce Socios.com as new front of shirt partner."
+      description: "Inter announce Socios.com as new front of shirt partner.",
+      link: "https://www.socios.com/a-new-era-begins-inter-announce-socios-com-as-new-front-of-shirt-partner-for-2021-22-season/"
     },
     {
       title: "Official Partner of Liga Serie A",
-      description: "Official Partner of Liga Serie A."
+      description: "Official Partner of Liga Serie A.",
+      link: "https://www.socios.com/lega-serie-a-announce-socios-com-partnership/"
     },
     {
       title: "Blockchain-powered fan engagement",
-      description: "Blockchain-powered fan engagement."
+      description: "Blockchain-powered fan engagement.",
+      link: "https://www.socios.com/7-teams-in-7-days-blockchain-powered-fan-engagement-giants-socios-com-set-for-major-us-growth/"
     },
   ]
 
@@ -245,7 +248,13 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {caseStudies.map((caseStudy, index) => (
-              <div key={index} className="bg-primary-purple rounded-lg overflow-hidden">
+              <a
+                key={index}
+                href={caseStudy.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-primary-purple rounded-lg overflow-hidden hover:opacity-80 transition-opacity"
+              >
                 <div className="relative aspect-video">
                   <Image
                     src={`/case-study-${index + 1}.png`}
@@ -258,7 +267,7 @@ export default function Home() {
                   <h3 className="heading-3 mb-2">{caseStudy.title}</h3>
                   <p className="text-sm text-neutral-gray-light">{caseStudy.description}</p>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
         </div>

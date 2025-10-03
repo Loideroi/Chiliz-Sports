@@ -129,11 +129,11 @@ export default function ContactForm({
           />
           <label htmlFor="agreeToTerms" className={labelClass}>
             Yes, I&apos;d like to receive documentation and stay updated on the latest news, offers, and news. I can unsubscribe anytime. For more details, see our{' '}
-            <a href="/privacy-policy" className="text-accent-pink hover:underline">
+            <a href="https://www.chiliz.com/privacy-policy/" className="text-accent-pink hover:underline" target="_blank" rel="noopener noreferrer">
               privacy policy
             </a>
             . By clicking submit, you agree that the info you provide will be processed in accordance with our privacy policy and you consent to being contacted about this through the link in your emails. For more information, see our{' '}
-            <a href="/privacy-policy" className="text-accent-pink hover:underline">
+            <a href="https://www.chiliz.com/privacy-policy/" className="text-accent-pink hover:underline" target="_blank" rel="noopener noreferrer">
               privacy policy
             </a>
             .
