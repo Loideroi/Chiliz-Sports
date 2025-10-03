@@ -20,11 +20,23 @@ export default function AboutUs() {
     <>
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden pt-20">
-        {/* Background Image */}
-        <div className="absolute inset-0 z-0">
+        {/* Background Image - Desktop */}
+        <div className="absolute inset-0 z-0 hidden md:block">
           <Image
             src="/hero-background.png"
             alt="Hero background with abstract flowing design"
+            fill
+            priority
+            className="object-cover"
+            quality={100}
+          />
+        </div>
+
+        {/* Background Image - Mobile */}
+        <div className="absolute inset-0 z-0 md:hidden">
+          <Image
+            src="/hero-background-mobile.png"
+            alt="Hero background mobile with abstract flowing design"
             fill
             priority
             className="object-cover"
