@@ -207,21 +207,32 @@ export default function Home() {
       {/* Insider Expertise */}
       <section className="section-padding">
         <div className="container-custom">
-          <h2 className="heading-1 mb-4">
-            Insider Expertise. Real Results.
-          </h2>
-          <p className="text-neutral-gray-light mb-8 max-w-3xl">
-            We&apos;ve been the sponsor, the negotiator, and the client  and along the way we&apos;ve built the trust of 70+ of the biggest names in sport.
-          </p>
-          <p className="text-neutral-gray-light mb-8 max-w-3xl">
-            Those relationships give us credibility where it counts: with clubs, leagues, talent, and the people making the calls. Others are still pitching to get in the room. We&apos;re already there.
-          </p>
-          <p className="text-neutral-gray-light mb-8 max-w-3xl">
-            Now, we put that advantage to work for you — helping brands navigate the sports maze and secure partnerships that deliver.
-          </p>
-          <Link href="/what-we-offer" className="btn-primary">
-            SEE WHAT WE DO
-          </Link>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="heading-1 mb-4">
+                Insider Expertise.<br />Real Results.
+              </h2>
+              <p className="text-neutral-gray-light mb-6">
+                We&apos;ve been the sponsor, the negotiator, and the client  and along the way we&apos;ve built the trust of 70+ of the biggest names in sport.
+              </p>
+              <p className="text-neutral-gray-light mb-6">
+                Those relationships give us credibility where it counts: with clubs, leagues, talent, and the people making the calls. Others are still pitching to get in the room. We&apos;re already there.
+              </p>
+              <p className="text-neutral-gray-light mb-8">
+                Now, we put that advantage to work for you — helping brands navigate the sports maze and secure partnerships that deliver.
+              </p>
+              <Link href="/what-we-offer" className="btn-primary">
+                SEE WHAT WE DO
+              </Link>
+            </div>
+
+            <div className="image-placeholder aspect-square">
+              <div className="text-white text-2xl font-bold">
+                PLACEHOLDER-INSIDER-EXPERTISE-IMAGE
+                <div className="text-sm mt-2">Purple gradient visual</div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -253,36 +264,26 @@ export default function Home() {
         </div>
       </section>
 
-      {/* See it. Feel it. Live it. */}
-      <section className="section-padding">
+      {/* Contact Us - See it. Feel it. Live it. */}
+      <section id="contact" className="section-padding bg-primary-purple">
         <div className="container-custom">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <div>
-              <h2 className="heading-1 mb-6">
-                See it. Feel it. Live it.
+              <h2 className="heading-1 mb-2">
+                Contact Us
               </h2>
+              <p className="text-2xl md:text-3xl font-semibold mb-6 text-neutral-gray-light">
+                See It. Feel It. Live It.
+              </p>
               <p className="text-neutral-gray-light mb-8">
                 We don&apos;t just pitch you on the surface. We dig deeper. Through immersive brand experiences, behind-the-scenes access, and on-ground activations, we show brands and stakeholders the full potential of sports marketing. Walk the locker room. Meet the players. Feel the energy of gameday. That&apos;s when brands stop thinking and start believing.
               </p>
-              <Link href="/contact" className="btn-primary">
-                LET&apos;S TALK
-              </Link>
             </div>
 
-            <div className="image-placeholder aspect-video">
-              <div className="text-white text-2xl font-bold">
-                PLACEHOLDER-SEE-IT-FEEL-IT-IMAGE
-                <div className="text-sm mt-2">Event/stadium experience visual</div>
-              </div>
+            <div>
+              <ContactForm showHeading={false} variant="dark" />
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Contact Form Section */}
-      <section id="contact" className="section-padding bg-primary-purple-light">
-        <div className="container-custom max-w-4xl">
-          <ContactForm />
         </div>
       </section>
     </>

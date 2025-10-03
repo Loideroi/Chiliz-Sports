@@ -155,15 +155,21 @@ export default function AboutUs() {
 
       {/* Get A Winning Edge */}
       <section className="section-padding">
-        <div className="container-custom max-w-4xl">
-          <h2 className="heading-1 mb-6">
-            Get A Winning Edge
-          </h2>
-          <p className="text-neutral-gray-light mb-12">
-            The global sports landscape moves fast and we&apos;ve been part of it for years. Whether you need introductions, deal structuring, negotiations, or activation strategy, Chiliz Sports brings the commercial expertise and access you need to win. Don&apos;t settle for hype seating. When sports partnerships really matter to your business, go with the insiders who&apos;ve already built the connections you&apos;ll need.
-          </p>
+        <div className="container-custom">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            <div>
+              <h2 className="heading-1 mb-6">
+                Get A Winning Edge
+              </h2>
+              <p className="text-neutral-gray-light mb-8">
+                The global sports landscape moves fast and we&apos;ve been part of it for years. Whether you need introductions, deal structuring, negotiations, or activation strategy, Chiliz Sports brings the commercial expertise and access you need to win. Don&apos;t settle for hype seating. When sports partnerships really matter to your business, go with the insiders who&apos;ve already built the connections you&apos;ll need.
+              </p>
+            </div>
 
-          <ContactForm />
+            <div>
+              <ContactForm showHeading={false} />
+            </div>
+          </div>
         </div>
       </section>
     </>

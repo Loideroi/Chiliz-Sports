@@ -15,7 +15,19 @@ const contactSchema = z.object({
 
 type ContactFormData = z.infer<typeof contactSchema>
 
-export default function ContactForm() {
+interface ContactFormProps {
+  showHeading?: boolean
+  heading?: string
+  description?: string
+  variant?: 'light' | 'dark'
+}
+
+export default function ContactForm({
+  showHeading = true,
+  heading = "Ready to Activate?",
+  description = "We know the global sports landscape inside out and we'll help you turn sponsorship into a smart, measurable, and inspiring brand move.",
+  variant = 'light'
+}: ContactFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
 
@@ -63,12 +75,22 @@ export default function ContactForm() {
     }
   }
 
+  const containerClass = variant === 'dark' ? '' : 'bg-primary-purple-light rounded-lg p-8'
+  const inputClass = variant === 'dark'
+    ? "w-full px-4 py-3 bg-transparent border-b-2 border-neutral-gray-light text-neutral-gray-light placeholder-neutral-gray-light focus:outline-none focus:border-accent-pink transition-colors"
+    : "w-full px-4 py-3 bg-transparent border-b-2 border-purple-700 text-white placeholder-neutral-gray-dark focus:outline-none focus:border-accent-pink transition-colors"
+  const labelClass = variant === 'dark' ? 'text-sm text-neutral-gray-light' : 'text-sm text-neutral-gray-light'
+
   return (
-    <div className="bg-primary-purple-light rounded-lg p-8">
-      <h2 className="heading-2 mb-2">Ready to Activate?</h2>
-      <p className="text-neutral-gray-light mb-8">
-        We know the global sports landscape inside out and we&apos;ll help you turn sponsorship into a smart, measurable, and inspiring brand move.
-      </p>
+    <div className={containerClass}>
+      {showHeading && (
+        <>
+          <h2 className="heading-2 mb-2">{heading}</h2>
+          <p className="text-neutral-gray-light mb-8">
+            {description}
+          </p>
+        </>
+      )}
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
         {/* Full Name */}
@@ -77,7 +99,7 @@ export default function ContactForm() {
             type="text"
             placeholder="Full name*"
             {...register('fullName')}
-            className="w-full px-4 py-3 bg-transparent border-b-2 border-purple-700 text-white placeholder-neutral-gray-dark focus:outline-none focus:border-accent-pink transition-colors"
+            className={inputClass}
           />
           {errors.fullName && (
             <p className="mt-2 text-sm text-accent-pink">{errors.fullName.message}</p>
@@ -90,7 +112,7 @@ export default function ContactForm() {
             type="email"
             placeholder="Email*"
             {...register('email')}
-            className="w-full px-4 py-3 bg-transparent border-b-2 border-purple-700 text-white placeholder-neutral-gray-dark focus:outline-none focus:border-accent-pink transition-colors"
+            className={inputClass}
           />
           {errors.email && (
             <p className="mt-2 text-sm text-accent-pink">{errors.email.message}</p>
@@ -105,7 +127,7 @@ export default function ContactForm() {
             {...register('agreeToTerms')}
             className="mt-1 mr-3 w-4 h-4 accent-accent-pink"
           />
-          <label htmlFor="agreeToTerms" className="text-sm text-neutral-gray-light">
+          <label htmlFor="agreeToTerms" className={labelClass}>
             Yes, I&apos;d like to receive documentation and stay updated on the latest news, offers, and news. I can unsubscribe anytime. For more details, see our{' '}
             <a href="/privacy-policy" className="text-accent-pink hover:underline">
               privacy policy
