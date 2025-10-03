@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import ContactForm from '@/components/ContactForm'
 
 export default function Home() {
@@ -55,14 +56,16 @@ export default function Home() {
     <>
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-        {/* Background Image Placeholder */}
+        {/* Background Image */}
         <div className="absolute inset-0 z-0">
-          <div className="image-placeholder h-full">
-            <div className="text-white text-2xl font-bold">
-              PLACEHOLDER-HERO-BACKGROUND-IMAGE
-              <div className="text-sm mt-2">Dynamic abstract flowing background with athlete silhouette</div>
-            </div>
-          </div>
+          <Image
+            src="/hero-background.png"
+            alt="Hero background with abstract flowing design"
+            fill
+            priority
+            className="object-cover"
+            quality={100}
+          />
         </div>
 
         <div className="relative z-10 container-custom text-center">
