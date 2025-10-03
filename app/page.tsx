@@ -177,30 +177,52 @@ export default function Home() {
             Trusted by the best.
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-primary-purple rounded-lg p-6">
-                {/* Portrait Image */}
-                <div className="relative aspect-square mb-4 rounded-lg overflow-hidden w-24 h-24 mx-auto">
-                  <Image
-                    src={`/portrait-${index + 1}.png`}
-                    alt={`${testimonial.author} portrait`}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
+          {/* Horizontal Scrolling Carousel */}
+          <div className="relative overflow-hidden">
+            <style jsx>{`
+              @keyframes scroll-testimonials {
+                0% {
+                  transform: translateX(0);
+                }
+                100% {
+                  transform: translateX(-50%);
+                }
+              }
 
-                <div className="text-accent-pink text-4xl mb-4">&ldquo;</div>
-                <p className="text-sm mb-4">{testimonial.quote}</p>
-                <div className="mt-4">
-                  <p className="font-semibold">{testimonial.author}</p>
-                  {testimonial.role && <p className="text-sm text-neutral-gray-light">{testimonial.role}</p>}
+              .animate-scroll-testimonials {
+                animation: scroll-testimonials 40s linear infinite;
+              }
+
+              .animate-scroll-testimonials:hover {
+                animation-play-state: paused;
+              }
+            `}</style>
+
+            <div className="flex animate-scroll-testimonials gap-8">
+              {[...testimonials, ...testimonials].map((testimonial, index) => (
+                <div key={index} className="flex-shrink-0 w-[320px] md:w-[380px] bg-primary-purple rounded-lg p-6">
+                  {/* Portrait Image */}
+                  <div className="relative aspect-square mb-4 rounded-lg overflow-hidden w-32 h-32 mx-auto">
+                    <Image
+                      src={`/portrait-${(index % testimonials.length) + 1}.png`}
+                      alt={`${testimonial.author} portrait`}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+
+                  <div className="text-accent-pink text-4xl mb-4">&ldquo;</div>
+                  <p className="text-sm mb-4 min-h-[120px]">{testimonial.quote}</p>
+                  <div className="mt-4">
+                    <p className="font-semibold">{testimonial.author}</p>
+                    {testimonial.role && <p className="text-sm text-neutral-gray-light">{testimonial.role}</p>}
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
 
-          <div className="flex justify-center mt-8 space-x-2">
+          <div className="flex justify-start mt-8 space-x-2">
             <button className="w-3 h-3 rounded-full bg-white" aria-label="Slide 1"></button>
             <button className="w-3 h-3 rounded-full bg-neutral-gray-dark" aria-label="Slide 2"></button>
           </div>
