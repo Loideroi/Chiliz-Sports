@@ -68,6 +68,17 @@ export default function Home() {
           />
         </div>
 
+        {/* Player Silhouette - Right Side */}
+        <div className="absolute right-0 bottom-0 z-[5] w-1/2 h-2/3 hidden md:block">
+          <Image
+            src="/player.png"
+            alt="Football player silhouette"
+            fill
+            priority
+            className="object-contain object-bottom-right"
+          />
+        </div>
+
         <div className="relative z-10 container-custom text-center">
           <h1 className="heading-hero mb-6">
             chiliz sports
