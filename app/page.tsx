@@ -178,7 +178,7 @@ export default function Home() {
             {testimonials.map((testimonial, index) => (
               <div key={index} className="bg-primary-purple rounded-lg p-6">
                 {/* Portrait Image */}
-                <div className="relative aspect-square mb-4 rounded-full overflow-hidden w-24 h-24 mx-auto">
+                <div className="relative aspect-square mb-4 rounded-lg overflow-hidden w-24 h-24 mx-auto">
                   <Image
                     src={`/portrait-${index + 1}.png`}
                     alt={`${testimonial.author} portrait`}
