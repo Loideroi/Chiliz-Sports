@@ -5,12 +5,12 @@ import ContactForm from '@/components/ContactForm'
 export default function AboutUs() {
   const testimonials = [
     {
-      quote: "We know sports clubs very well. We know sports clubs and are aware understand this well. We know the reality of how tricky sponsorships can be and what athletes want. Our team has been navigating these relationships for a decade.",
+      quote: "Our existing partners know how valuable our network is because we've been fostering synergies and opportunities between them since our foundation. Now, through Chiliz Sports more clubs, rights holders and brands from sports, crypto and beyond will be able to tap into our remarkable network.",
       author: "Alexandre Dreyfus",
       role: ""
     },
     {
-      quote: "Fostering synergies and opportunities. We deeply understand how sports partnership branding works—the nuances, the expectations, and the obstacles. That insight allows us to craft smarter deals, mitigate risk, and open doors other agencies can't. We've been doing this for years, and it shows.",
+      quote: "The sports sponsorship industry can be a complex world to navigate. Daniel and the team at Chiliz Sports have seen it all, and can provide the essential guidance needed to ensure you create partnerships that really deliver.",
       author: "Daniel Madjetko",
       role: ""
     },
@@ -78,13 +78,7 @@ export default function AboutUs() {
                 Who We Are?
               </h2>
               <p className="text-neutral-gray-light mb-4">
-                Led by Chiliz Marketing, a globally experienced commercial leader in the sports industry, Chiliz Sports isn&apos;t a traditional agency. We&apos;re insiders who built our reputation one deal at a time, working directly with leagues, clubs, athletes, and major brands—and we can do it all for you too.
-              </p>
-              <p className="text-neutral-gray-light mb-4">
-                We act on de-light years of the team. We&apos;ve been in locker rooms, sat in boardrooms, managed real negotiations, and seen up close what drives (or derails) major deals. That perspective gives us an edge: we understand both sides and can maneuver between them with confidence.
-              </p>
-              <p className="text-neutral-gray-light mb-6">
-                We do a lot more with these commercial relationships, helping both sides navigate their needs and expectations in a much more nuanced way than you&apos;ll find elsewhere.
+                We have built a global sporting network of more than 70+ elite teams and organisations, so  we know what it takes to succeed in the world of  sports sponsorship.  Tap our expertise, insider knowledge, connections and make every partnership a winner.
               </p>
               <Link href="/contact" className="btn-primary">
                 LET&apos;S TALK
@@ -102,10 +96,13 @@ export default function AboutUs() {
           </h2>
           <div className="max-w-4xl">
             <p className="text-neutral-gray-light mb-4">
-              We act through the power of the sports commercial realm. With direct access to high-level connections and decision-making networks, we help you secure the partnerships that matter.
+              Sports sponsorship is no longer just about visibility. We specialize in leveraging the business potential that sports sponsorship uniquely offers.
             </p>
             <p className="text-neutral-gray-light mb-6">
-              From athletes your objectives by negotiating and executing deals, we break down barriers to deliver measurable impact, evolving both sides. We secure your objectives by negotiating and executing deals that build long-term brand equity and drive performance-based impact, evolving both sides.
+              With partnerships spanning 70+ football clubs across the UK, Spain, Italy, France, Brazil, Argentina, South Korea, Switzerland, Mexico, Colombia, Indonesia, Malaysia, Croatia, and more — we have built one of the most extensive networks in global football.
+            </p>
+            <p className="text-neutral-gray-light mb-6">
+              But more than access, we bring something deeper: cultural insight, deal-making experience, and a proven ability to match brands with the right opportunities for measurable impact.
             </p>
           </div>
         </div>
@@ -148,7 +145,7 @@ export default function AboutUs() {
             Part of The Chiliz Group
           </h2>
           <p className="text-neutral-gray-light max-w-4xl mb-8">
-            Chiliz is the global leader in blockchain for sport and entertainment. Our parent company has partnerships with the biggest teams in the world—FC Barcelona, Paris Saint-Germain, Juventus, Manchester City, UFC, and many more. Our unique access and sports ecosystem, partnerships, and access with the world&apos;s biggest clubs, including FC Barcelona, PSG, Manchester City, Juventus, and Inter Milan.
+            Chiliz is the global leader in blockchain for sport and entertainment. We pioneered Fan Tokens™ and Socios.com - the platform where fans hold and trade 70+ Fan Tokens™ and unlock exclusive rewards, experiences, and access with the world&apos;s biggest clubs, including FC Barcelona, PSG, Manchester City, Juventus, and Inter Milan.
           </p>
           <p className="text-neutral-gray-light max-w-4xl">
             That global network isn&apos;t window dressing. It&apos;s active, ongoing, and directly accessible through Chiliz Sports. We leverage those relationships to open doors, accelerate negotiations, and deliver results that independent agencies simply can&apos;t match.

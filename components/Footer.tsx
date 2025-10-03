@@ -2,8 +2,6 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear()
-
   return (
     <footer className="bg-primary-purple-dark border-t border-purple-900">
       <div className="container-custom py-12">
@@ -71,10 +69,7 @@ export default function Footer() {
         {/* Copyright */}
         <div className="mt-12 pt-8 border-t border-purple-900 text-center text-neutral-gray-light text-sm">
           <p>
-            © Copyright {currentYear} - {currentYear + 7}. All Rights Reserved. Madlane Enterprises Limited registered in Malta and its subsidiaries.
-          </p>
-          <p className="mt-2 text-xs">
-            We may use content disclosed on Madlane Sports (including any projects or brands associated with this name) by you with your prior written consent, but such consent or the extent or manner in which we use such information may not be deemed or considered or otherwise implied to be any form of endorsement from you towards Madlane or the way we use such information. If at any time you feel uncomfortable with the way we may use any content provided by you or disclosed on Madlane Sports or if for any reason you feel that your earlier provided consent should be withdrawn, please contact the administration of the site via this website or any other contact provided to you and any content or use of content that you have highlighted without further prior written consent or where further consult without such written consent or disclosure would be withdrawn shall cease to be utilized or publicized without further prior written consent.
+            © Copyright 2018 – 2025. All Rights Reserved. Mediarex Enterprises Limited registered in Malta and its subsidiaries.
           </p>
         </div>
       </div>

@@ -13,7 +13,7 @@ export default function WhatWeOffer() {
       title: "Access to Rights & Talent",
       icon: "ICON-1",
       description: "Go straight to the decision-makers from 70+ top clubs and leagues.",
-      details: "We know who matters and we and we know how to get you a foot at the door. If it's a league, a club, or a high-demand athlete, our network cuts through layers of bureaucracy. You get to people who can say yes, and we can tell you.",
+      details: "We know who matters and we know how to get you in front of them. Whether it's club owners, league executives, or athletes, we make sure your brand connects directly with the people who can say yes.",
     },
     {
       title: "Brand Protection & Contract Management",
@@ -109,7 +109,10 @@ export default function WhatWeOffer() {
                 Deals That Deliver.
               </h2>
               <p className="text-neutral-gray-light mb-4">
-                Sports sponsorship is crowded, messy, and full of dead ends. We clear the path. Chiliz sports connects you straight to the clubs, leagues, and talent that matter with insider access you won&apos;t find anywhere else.
+                Sports sponsorship is crowded, messy, and full of dead ends. We clear the path.
+              </p>
+              <p className="text-neutral-gray-light mb-4">
+                Chiliz Sports connects you straight to the clubs, leagues, and talent that matter with insider access you won&apos;t find anywhere else.
               </p>
               <p className="text-neutral-gray-light mb-6">
                 No guesswork. No wasted time. Just the right deal, done right.

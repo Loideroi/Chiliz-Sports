@@ -17,39 +17,39 @@ export default function Home() {
 
   const testimonials = [
     {
-      quote: "They know sports clubs very well. We know sports clubs and are aware understand this well. They know the reality of how tricky sponsorships can be and what athletes want. Our team has been navigating these relationships for a decade.",
-      author: "Trusted Partner 1",
-      role: "Public Comments"
-    },
-    {
-      quote: "We know sports clubs very well. We know sports clubs and are aware understand this well. They know the reality of how tricky sponsorships can be and what athletes want.",
-      author: "Christian Toni",
+      quote: "In today's fast-moving sports industry, timing and trust are everything. Daniel and the team at Chiliz Sports know how to connect brands with the right opportunities at exactly the right moment. If you want partnerships that are authentic and impactful, they're the ones to call.",
+      author: "Fabio Cannavaro",
       role: ""
     },
     {
-      quote: "We know sports clubs very well. We know sports clubs and are aware understand this well. They know the reality of how tricky sponsorships can be and what athletes want.",
-      author: "Sports Inc.",
+      quote: "The sports sponsorship industry can be a complex world to navigate. Daniel and the team at Chiliz Sports have seen it all, and can provide the essential guidance needed to ensure you create partnerships that really deliver.",
+      author: "Christian Vieri",
       role: ""
     },
     {
-      quote: "We know sports clubs very well. We know sports clubs and are aware understand this well. They know the reality of how tricky sponsorships can be and what athletes want.",
-      author: "Josh Johnson",
+      quote: "If you want to make your next sports sponsorship a success, it's simple. Get in touch with Daniel and the team at Chiliz Sports.",
+      author: "Kang in Lee",
+      role: ""
+    },
+    {
+      quote: "In today's fast-moving sports industry, timing and trust are everything. Daniel and the team at Chiliz Sports know how to connect brands with the right opportunities at exactly the right moment. If you want partnerships that are authentic and impactful, they're the ones to call.",
+      author: "Javi Guerra",
       role: ""
     },
   ]
 
   const caseStudies = [
     {
-      title: "Everton Case Study",
-      description: "Premier League partnership success story"
+      title: "Inter announce Socios.com as new front of shirt partner",
+      description: "Inter announce Socios.com as new front of shirt partner."
     },
     {
-      title: "Santos FC Case Study",
-      description: "Brazilian football club collaboration"
+      title: "Official Partner of Liga Serie A",
+      description: "Official Partner of Liga Serie A."
     },
     {
-      title: "Barcelona Ambassador Campaign",
-      description: "Global brand ambassador program"
+      title: "Blockchain-powered fan engagement",
+      description: "Blockchain-powered fan engagement."
     },
   ]
 
@@ -150,13 +150,13 @@ export default function Home() {
               </h2>
               <div className="space-y-4 text-neutral-gray-light">
                 <p>
-                  We&apos;ve been the commercial go-betweens for sports partnerships for over a decade. While business is cut-throat, we don&apos;t burn our bridges. Those relationships count. Our strong relationships with athletes and club decision-makers help you cut through red tape and get deals done fast.
+                  Most agencies only promise it. We deliver.
                 </p>
                 <p>
-                  We act as a bridge between brands and the sports world—bridging the gap between ambitious visions and complex realities.
+                  Our team has lived the challenges of sponsorship first-hand.
                 </p>
                 <p>
-                  Sponsorships that elevate your objectives by negotiating and executing deals, we break down barriers to deliver measurable impact, evolving both sides.
+                  We know how easy it is to waste months chasing introductions, hitting dead ends, or signing misaligned deals. That&apos;s why we go straight to the decision-makers, define clear goals, and build activations that stick.
                 </p>
               </div>
               <Link href="/contact" className="btn-primary inline-block mt-8">
@@ -211,10 +211,13 @@ export default function Home() {
             Insider Expertise. Real Results.
           </h2>
           <p className="text-neutral-gray-light mb-8 max-w-3xl">
-            Brand and sports partnerships are complicated. They&apos;re equal parts art and hard-nosed business, with risk lurking behind every deal. We understand both. Years of direct experience have taught us what works, where the landmines are, and how to de-risk your sponsorship strategy. We&apos;ve watched too many deals go nowhere because the fundamentals were ignored.
+            We&apos;ve been the sponsor, the negotiator, and the client  and along the way we&apos;ve built the trust of 70+ of the biggest names in sport.
           </p>
           <p className="text-neutral-gray-light mb-8 max-w-3xl">
-            That won&apos;t happen here. You want insider savvy, market realism, and measurable outcomes. We deliver it—because we&apos;ve been there before.
+            Those relationships give us credibility where it counts: with clubs, leagues, talent, and the people making the calls. Others are still pitching to get in the room. We&apos;re already there.
+          </p>
+          <p className="text-neutral-gray-light mb-8 max-w-3xl">
+            Now, we put that advantage to work for you — helping brands navigate the sports maze and secure partnerships that deliver.
           </p>
           <Link href="/what-we-offer" className="btn-primary">
             SEE WHAT WE DO
