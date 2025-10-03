@@ -20,13 +20,27 @@ export default function AboutUs() {
     <>
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden pt-20">
+        {/* Background Image */}
         <div className="absolute inset-0 z-0">
-          <div className="image-placeholder h-full">
-            <div className="text-white text-2xl font-bold">
-              PLACEHOLDER-ABOUT-HERO-BACKGROUND
-              <div className="text-sm mt-2">Abstract background with flowing design</div>
-            </div>
-          </div>
+          <Image
+            src="/hero-background.png"
+            alt="Hero background with abstract flowing design"
+            fill
+            priority
+            className="object-cover"
+            quality={100}
+          />
+        </div>
+
+        {/* Player Silhouette - Right Side */}
+        <div className="absolute right-0 bottom-0 z-[5] w-1/2 h-2/3 hidden md:block">
+          <Image
+            src="/player.png"
+            alt="Football player silhouette"
+            fill
+            priority
+            className="object-contain object-bottom-right"
+          />
         </div>
 
         <div className="relative z-10 container-custom text-center">
