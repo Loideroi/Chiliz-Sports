@@ -1,9 +1,10 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
+import Script from 'next/script'
 
 const contactSchema = z.object({
   fullName: z.string().min(2, 'Full name is required'),
@@ -31,6 +32,9 @@ declare global {
   }
 }
 
+// Get the site key at module level to ensure it's available
+const TURNSTILE_SITE_KEY = (process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || '0x4AAAAAAB5Efhs5LNfYaT2Q').trim()
+
 export default function ContactForm({
   showHeading = true,
   heading = "Ready to Activate?",
@@ -41,6 +45,8 @@ export default function ContactForm({
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null)
   const [turnstileWidgetId, setTurnstileWidgetId] = useState<string | null>(null)
+  const [turnstileLoaded, setTurnstileLoaded] = useState(false)
+  const [turnstileError, setTurnstileError] = useState<string | null>(null)
 
   const {
     register,
@@ -51,32 +57,42 @@ export default function ContactForm({
     resolver: zodResolver(contactSchema),
   })
 
-  // Load Turnstile script
-  useEffect(() => {
-    const script = document.createElement('script')
-    script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js'
-    script.async = true
-    script.defer = true
-    script.onload = () => {
-      // Render Turnstile widget
-      if (window.turnstile) {
+  // Render Turnstile widget when script loads
+  const renderTurnstile = useCallback(() => {
+    try {
+      if (window.turnstile && !turnstileWidgetId) {
+        console.log('Rendering Turnstile widget with sitekey:', TURNSTILE_SITE_KEY)
         const widgetId = window.turnstile.render('#turnstile-widget', {
-          sitekey: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!,
+          sitekey: TURNSTILE_SITE_KEY,
           callback: (token: string) => {
+            console.log('Turnstile token received')
             setTurnstileToken(token)
+            setTurnstileError(null)
+          },
+          'error-callback': (error: any) => {
+            console.error('Turnstile error:', error)
+            setTurnstileError('Security verification failed. Please refresh the page.')
+          },
+          'expired-callback': () => {
+            console.log('Turnstile token expired')
+            setTurnstileToken(null)
+            setTurnstileError('Security verification expired. Please try again.')
           },
         })
         setTurnstileWidgetId(widgetId)
+        console.log('Turnstile widget rendered with ID:', widgetId)
       }
+    } catch (error) {
+      console.error('Failed to render Turnstile widget:', error)
+      setTurnstileError('Failed to load security verification. Please refresh the page.')
     }
-    document.body.appendChild(script)
+  }, [turnstileWidgetId])
 
-    return () => {
-      if (document.body.contains(script)) {
-        document.body.removeChild(script)
-      }
+  useEffect(() => {
+    if (turnstileLoaded) {
+      renderTurnstile()
     }
-  }, [])
+  }, [turnstileLoaded, renderTurnstile])
 
   const onSubmit = async (data: ContactFormData) => {
     // Check if Turnstile token exists
@@ -105,6 +121,15 @@ export default function ContactForm({
 
       if (!response.ok) {
         throw new Error(result.error || 'Failed to submit form')
+      }
+
+      console.log('Form submission response:', result)
+
+      if (result.debug) {
+        console.log('Email sent:', result.debug.emailSent)
+        if (result.debug.emailError) {
+          console.error('Email error:', result.debug.emailError)
+        }
       }
 
       setSubmitStatus('success')
@@ -136,17 +161,31 @@ export default function ContactForm({
   const labelClass = variant === 'dark' ? 'text-sm text-neutral-gray-light' : 'text-sm text-neutral-gray-light'
 
   return (
-    <div className={containerClass}>
-      {showHeading && (
-        <>
-          <h2 className="heading-2 mb-2">{heading}</h2>
-          <p className="text-neutral-gray-light mb-8">
-            {description}
-          </p>
-        </>
-      )}
+    <>
+      <Script
+        src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+        strategy="lazyOnload"
+        onLoad={() => {
+          console.log('Turnstile script loaded')
+          setTurnstileLoaded(true)
+        }}
+        onError={(e) => {
+          console.error('Failed to load Turnstile script:', e)
+          setTurnstileError('Failed to load security verification. Please check your internet connection and refresh the page.')
+        }}
+      />
 
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+      <div className={containerClass}>
+        {showHeading && (
+          <>
+            <h2 className="heading-2 mb-2">{heading}</h2>
+            <p className="text-neutral-gray-light mb-8">
+              {description}
+            </p>
+          </>
+        )}
+
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
         {/* Full Name */}
         <div>
           <input
@@ -198,7 +237,15 @@ export default function ContactForm({
         )}
 
         {/* Cloudflare Turnstile Widget */}
-        <div id="turnstile-widget" className="flex justify-center"></div>
+        <div>
+          <div id="turnstile-widget" className="flex justify-center"></div>
+          {turnstileError && (
+            <p className="mt-2 text-sm text-accent-pink text-center">{turnstileError}</p>
+          )}
+          {!turnstileLoaded && !turnstileError && (
+            <p className="text-sm text-neutral-gray-light text-center">Loading security verification...</p>
+          )}
+        </div>
 
         {/* Submit Button */}
         <div>
@@ -222,7 +269,8 @@ export default function ContactForm({
             <p className="text-red-400">Something went wrong. Please try again.</p>
           </div>
         )}
-      </form>
-    </div>
+        </form>
+      </div>
+    </>
   )
 }
