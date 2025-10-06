@@ -78,7 +78,7 @@ export async function POST(request: Request) {
     try {
       const emailPayload = {
         from: 'Chiliz Sports Contact Form <onboarding@resend.dev>',
-        to: 'daniel@chiliz.com',
+        to: 'mark@chiliz.com',
         subject: 'New Contact Form Submission - Chiliz Sports',
         html: `
           <h2>New Contact Form Submission</h2>
