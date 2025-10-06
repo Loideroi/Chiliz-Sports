@@ -76,7 +76,7 @@ export async function POST(request: Request) {
     let emailError: any = null
 
     try {
-      const emailResult = await resend.emails.send({
+      const emailPayload = {
         from: 'Chiliz Sports Contact Form <onboarding@resend.dev>',
         to: 'daniel@chiliz.com',
         subject: 'New Contact Form Submission - Chiliz Sports',
@@ -88,14 +88,28 @@ export async function POST(request: Request) {
           <p><strong>Submitted:</strong> ${new Date().toISOString()}</p>
         `,
         replyTo: email,
-      })
+      }
 
-      console.log('Email sent successfully via Resend:', emailResult)
-      emailSuccess = true
+      console.log('Sending email with payload:', JSON.stringify(emailPayload, null, 2))
+      const emailResult = await resend.emails.send(emailPayload)
+
+      console.log('Resend API response:', JSON.stringify(emailResult, null, 2))
+
+      if (emailResult.error) {
+        console.error('Resend returned an error:', emailResult.error)
+        emailError = emailResult.error.message || JSON.stringify(emailResult.error)
+        emailSuccess = false
+      } else {
+        console.log('Email sent successfully! ID:', emailResult.data?.id)
+        emailSuccess = true
+      }
     } catch (error: any) {
-      console.error('Failed to send email via Resend:', error)
-      console.error('Error details:', JSON.stringify(error, null, 2))
+      console.error('Failed to send email via Resend - exception thrown:', error)
+      console.error('Error name:', error.name)
+      console.error('Error message:', error.message)
+      console.error('Error stack:', error.stack)
       emailError = error.message || 'Unknown error'
+      emailSuccess = false
     }
 
     console.log('Contact form submission processed:', {

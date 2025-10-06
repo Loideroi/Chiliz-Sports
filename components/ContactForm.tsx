@@ -48,6 +48,13 @@ export default function ContactForm({
   const [turnstileLoaded, setTurnstileLoaded] = useState(false)
   const [turnstileError, setTurnstileError] = useState<string | null>(null)
 
+  // Reset widget state on mount to handle navigation
+  useEffect(() => {
+    setTurnstileWidgetId(null)
+    setTurnstileToken(null)
+    setTurnstileError(null)
+  }, [])
+
   const {
     register,
     handleSubmit,
@@ -62,6 +69,13 @@ export default function ContactForm({
     try {
       if (window.turnstile && !turnstileWidgetId) {
         console.log('Rendering Turnstile widget with sitekey:', TURNSTILE_SITE_KEY)
+
+        // Clear the container to avoid duplicates
+        const container = document.querySelector('#turnstile-widget')
+        if (container) {
+          container.innerHTML = ''
+        }
+
         const widgetId = window.turnstile.render('#turnstile-widget', {
           sitekey: TURNSTILE_SITE_KEY,
           callback: (token: string) => {
@@ -92,7 +106,19 @@ export default function ContactForm({
     if (turnstileLoaded) {
       renderTurnstile()
     }
-  }, [turnstileLoaded, renderTurnstile])
+
+    // Cleanup function to reset widget when component unmounts
+    return () => {
+      if (window.turnstile && turnstileWidgetId) {
+        try {
+          window.turnstile.reset(turnstileWidgetId)
+          console.log('Turnstile widget reset on unmount')
+        } catch (e) {
+          console.log('Error resetting Turnstile widget:', e)
+        }
+      }
+    }
+  }, [turnstileLoaded, renderTurnstile, turnstileWidgetId])
 
   const onSubmit = async (data: ContactFormData) => {
     // Check if Turnstile token exists
