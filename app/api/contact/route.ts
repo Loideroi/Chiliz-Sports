@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server'
 import { Resend } from 'resend'
 
 // Initialize Resend lazily to avoid build-time errors
+// Last updated: 2025-10-06 17:30 - recipient: daniel@chiliz.com
 function getResend() {
   return new Resend(process.env.RESEND_API_KEY)
 }
