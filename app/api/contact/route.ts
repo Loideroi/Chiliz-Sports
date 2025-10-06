@@ -1,7 +1,10 @@
 import { NextResponse } from 'next/server'
 import { Resend } from 'resend'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+// Initialize Resend lazily to avoid build-time errors
+function getResend() {
+  return new Resend(process.env.RESEND_API_KEY)
+}
 
 async function verifyTurnstileToken(token: string): Promise<boolean> {
   const response = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
@@ -49,6 +52,7 @@ export async function POST(request: Request) {
     }
 
     // Send email notification to mark@chiliz.com
+    const resend = getResend()
     await resend.emails.send({
       from: 'Chiliz Sports Contact Form <noreply@chiliz-sports.com>',
       to: 'mark@chiliz.com',
