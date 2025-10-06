@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
@@ -22,6 +22,15 @@ interface ContactFormProps {
   variant?: 'light' | 'dark'
 }
 
+declare global {
+  interface Window {
+    turnstile?: {
+      render: (element: string, options: any) => string
+      reset: (widgetId: string) => void
+    }
+  }
+}
+
 export default function ContactForm({
   showHeading = true,
   heading = "Ready to Activate?",
@@ -30,6 +39,8 @@ export default function ContactForm({
 }: ContactFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null)
+  const [turnstileWidgetId, setTurnstileWidgetId] = useState<string | null>(null)
 
   const {
     register,
@@ -40,7 +51,41 @@ export default function ContactForm({
     resolver: zodResolver(contactSchema),
   })
 
+  // Load Turnstile script
+  useEffect(() => {
+    const script = document.createElement('script')
+    script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js'
+    script.async = true
+    script.defer = true
+    script.onload = () => {
+      // Render Turnstile widget
+      if (window.turnstile) {
+        const widgetId = window.turnstile.render('#turnstile-widget', {
+          sitekey: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!,
+          callback: (token: string) => {
+            setTurnstileToken(token)
+          },
+        })
+        setTurnstileWidgetId(widgetId)
+      }
+    }
+    document.body.appendChild(script)
+
+    return () => {
+      if (document.body.contains(script)) {
+        document.body.removeChild(script)
+      }
+    }
+  }, [])
+
   const onSubmit = async (data: ContactFormData) => {
+    // Check if Turnstile token exists
+    if (!turnstileToken) {
+      setSubmitStatus('error')
+      setTimeout(() => setSubmitStatus('idle'), 5000)
+      return
+    }
+
     setIsSubmitting(true)
     setSubmitStatus('idle')
 
@@ -50,7 +95,10 @@ export default function ContactForm({
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          ...data,
+          turnstileToken,
+        }),
       })
 
       const result = await response.json()
@@ -61,6 +109,12 @@ export default function ContactForm({
 
       setSubmitStatus('success')
       reset()
+
+      // Reset Turnstile widget
+      if (window.turnstile && turnstileWidgetId) {
+        window.turnstile.reset(turnstileWidgetId)
+      }
+      setTurnstileToken(null)
 
       // Reset success message after 5 seconds
       setTimeout(() => setSubmitStatus('idle'), 5000)
@@ -143,11 +197,14 @@ export default function ContactForm({
           <p className="text-sm text-accent-pink">{errors.agreeToTerms.message}</p>
         )}
 
+        {/* Cloudflare Turnstile Widget */}
+        <div id="turnstile-widget" className="flex justify-center"></div>
+
         {/* Submit Button */}
         <div>
           <button
             type="submit"
-            disabled={isSubmitting}
+            disabled={isSubmitting || !turnstileToken}
             className="btn-primary w-full md:w-auto disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isSubmitting ? 'SUBMITTING...' : 'LET\'S TALK'}
