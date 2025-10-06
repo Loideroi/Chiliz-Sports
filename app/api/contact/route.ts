@@ -48,10 +48,10 @@ export async function POST(request: Request) {
       )
     }
 
-    // Send email notification to daniel@chiliz.com
+    // Send email notification to mark@chiliz.com
     await resend.emails.send({
       from: 'Chiliz Sports Contact Form <noreply@chiliz-sports.com>',
-      to: 'daniel@chiliz.com',
+      to: 'mark@chiliz.com',
       subject: 'New Contact Form Submission',
       html: `
         <h2>New Contact Form Submission</h2>
@@ -62,7 +62,7 @@ export async function POST(request: Request) {
       `,
     })
 
-    console.log('Contact form submission sent to daniel@chiliz.com:', {
+    console.log('Contact form submission sent to mark@chiliz.com:', {
       fullName,
       email,
       agreeToTerms,
