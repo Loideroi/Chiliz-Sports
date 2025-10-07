@@ -50,9 +50,17 @@ export default function ContactForm({
 
   // Reset widget state on mount to handle navigation
   useEffect(() => {
+    console.log('ContactForm mounted - resetting Turnstile state')
     setTurnstileWidgetId(null)
     setTurnstileToken(null)
     setTurnstileError(null)
+    setTurnstileLoaded(false)
+
+    // Check if script is already loaded
+    if (window.turnstile) {
+      console.log('Turnstile script detected on mount')
+      setTurnstileLoaded(true)
+    }
   }, [])
 
   const {
@@ -67,47 +75,73 @@ export default function ContactForm({
   // Render Turnstile widget when script loads
   const renderTurnstile = useCallback(() => {
     try {
-      if (window.turnstile && !turnstileWidgetId) {
-        console.log('Rendering Turnstile widget with sitekey:', TURNSTILE_SITE_KEY)
-
-        // Clear the container to avoid duplicates
-        const container = document.querySelector('#turnstile-widget')
-        if (container) {
-          container.innerHTML = ''
-        }
-
-        const widgetId = window.turnstile.render('#turnstile-widget', {
-          sitekey: TURNSTILE_SITE_KEY,
-          callback: (token: string) => {
-            console.log('Turnstile token received')
-            setTurnstileToken(token)
-            setTurnstileError(null)
-          },
-          'error-callback': (error: any) => {
-            console.error('Turnstile error:', error)
-            setTurnstileError('Security verification failed. Please refresh the page.')
-          },
-          'expired-callback': () => {
-            console.log('Turnstile token expired')
-            setTurnstileToken(null)
-            setTurnstileError('Security verification expired. Please try again.')
-          },
-        })
-        setTurnstileWidgetId(widgetId)
-        console.log('Turnstile widget rendered with ID:', widgetId)
+      // Check if Turnstile API is available
+      if (!window.turnstile) {
+        console.log('Turnstile API not available yet')
+        return
       }
+
+      // Check if DOM element exists
+      const container = document.querySelector('#turnstile-widget')
+      if (!container) {
+        console.log('Turnstile container not found in DOM yet')
+        return
+      }
+
+      // Don't render if already rendered
+      if (turnstileWidgetId) {
+        console.log('Turnstile widget already rendered with ID:', turnstileWidgetId)
+        return
+      }
+
+      console.log('Rendering Turnstile widget with sitekey:', TURNSTILE_SITE_KEY)
+
+      // Clear the container to avoid duplicates
+      container.innerHTML = ''
+
+      const widgetId = window.turnstile.render('#turnstile-widget', {
+        sitekey: TURNSTILE_SITE_KEY,
+        callback: (token: string) => {
+          console.log('Turnstile token received')
+          setTurnstileToken(token)
+          setTurnstileError(null)
+        },
+        'error-callback': (error: any) => {
+          console.error('Turnstile error:', error)
+          setTurnstileError('Security verification failed. Please refresh the page.')
+        },
+        'expired-callback': () => {
+          console.log('Turnstile token expired')
+          setTurnstileToken(null)
+          setTurnstileError('Security verification expired. Please try again.')
+        },
+      })
+      setTurnstileWidgetId(widgetId)
+      console.log('Turnstile widget rendered with ID:', widgetId)
     } catch (error) {
       console.error('Failed to render Turnstile widget:', error)
       setTurnstileError('Failed to load security verification. Please refresh the page.')
     }
   }, [turnstileWidgetId])
 
+  // Effect to render Turnstile when script is loaded AND component is mounted
   useEffect(() => {
-    if (turnstileLoaded) {
+    // Check if Turnstile script is loaded
+    if (window.turnstile) {
+      console.log('Turnstile script already available, rendering widget')
+      // Use a small delay to ensure DOM is ready
+      const timer = setTimeout(() => {
+        renderTurnstile()
+      }, 100)
+      return () => clearTimeout(timer)
+    } else if (turnstileLoaded) {
+      console.log('Turnstile script loaded via Script component, rendering widget')
       renderTurnstile()
     }
+  }, [turnstileLoaded, renderTurnstile])
 
-    // Cleanup function to reset widget when component unmounts
+  // Cleanup on unmount
+  useEffect(() => {
     return () => {
       if (window.turnstile && turnstileWidgetId) {
         try {
@@ -118,7 +152,7 @@ export default function ContactForm({
         }
       }
     }
-  }, [turnstileLoaded, renderTurnstile, turnstileWidgetId])
+  }, [turnstileWidgetId])
 
   const onSubmit = async (data: ContactFormData) => {
     // Check if Turnstile token exists
