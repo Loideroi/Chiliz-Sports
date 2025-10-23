@@ -143,7 +143,7 @@ export default function Home() {
       </section>
 
       {/* Access is Everything */}
-      <section className="section-padding">
+      <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="relative aspect-square rounded-lg overflow-hidden">
@@ -156,10 +156,10 @@ export default function Home() {
             </div>
 
             <div>
-              <h2 className="heading-1 mb-6">
+              <h2 className="heading-1 mb-6 text-primary-purple">
                 Access is Everything.
               </h2>
-              <div className="space-y-4 text-neutral-gray-light leading-relaxed">
+              <div className="space-y-4 text-gray-700 leading-relaxed">
                 <p>
                   Most agencies only promise it. We deliver.
                 </p>
@@ -240,23 +240,23 @@ export default function Home() {
       </section>
 
       {/* Insider Expertise */}
-      <section className="section-padding">
+      <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="heading-1 mb-4">
+              <h2 className="heading-1 mb-4 text-primary-purple">
                 Insider Expertise.<br />Real Results.
               </h2>
-              <p className="text-neutral-gray-light mb-6 leading-relaxed">
+              <p className="text-gray-700 mb-6 leading-relaxed">
                 We&apos;ve been the sponsor, the negotiator, and the client — and along the way we&apos;ve built the trust of 70+ of the biggest names in sport.
               </p>
-              <p className="text-neutral-gray-light mb-6 leading-relaxed">
+              <p className="text-gray-700 mb-6 leading-relaxed">
                 Those relationships give us credibility where it counts: with clubs, leagues, talent, and the people making the calls. Others are still pitching to get in the room. We&apos;re already there.
               </p>
-              <p className="text-neutral-gray-light mb-8 leading-relaxed">
+              <p className="text-gray-700 mb-8 leading-relaxed">
                 Now, we put that advantage to work for you — helping brands navigate the sports maze and secure partnerships that deliver.
               </p>
-              <Link href="/what-we-offer" className="btn-primary">
+              <Link href="/contact" className="btn-primary">
                 GET STRAIGHT ANSWERS
               </Link>
             </div>
@@ -274,7 +274,7 @@ export default function Home() {
       </section>
 
       {/* Deals That Deliver */}
-      <section className="section-padding bg-primary-purple">
+      <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
@@ -287,14 +287,14 @@ export default function Home() {
             </div>
 
             <div>
-              <h3 className="text-2xl md:text-3xl font-semibold mb-6">
+              <h3 className="text-2xl md:text-3xl font-semibold mb-6 text-primary-purple">
                 Deals That Deliver.
               </h3>
-              <p className="text-neutral-gray-light mb-8 leading-relaxed">
+              <p className="text-gray-700 mb-8 leading-relaxed">
                 Sports sponsorship is crowded, messy, and full of dead ends. We clear the path.
                 Chiliz Sports connects you straight to the clubs, leagues, and talent that matter — with insider access you won&apos;t find anywhere else.
               </p>
-              <p className="text-neutral-gray-light mb-8 leading-relaxed">
+              <p className="text-gray-700 mb-8 leading-relaxed">
                 No guesswork. No wasted time. Just the right deal, done right.
               </p>
               <Link href="/contact" className="btn-primary">
@@ -306,52 +306,42 @@ export default function Home() {
       </section>
 
       {/* Core Services */}
-      <section className="section-padding">
+      <section className="section-padding bg-primary-purple">
         <div className="container-custom">
-          <h2 className="heading-2 text-center mb-4">
+          <h2 className="heading-2 text-center mb-12">
             Core Services.
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-            {/* Direct Access */}
-            <div className="bg-primary-purple-light rounded-lg p-8">
-              <h3 className="heading-3 mb-4">Direct Access</h3>
-              <p className="text-neutral-gray-light leading-relaxed">
-                Go straight to the decision-makers from 70+ top clubs and leagues. We know who matters and we know how to get you in front of them. Whether it&apos;s club owners, league executives, or athletes, we make sure your brand connects directly with the people who can say yes.
-              </p>
-            </div>
+          {/* Navigation Tabs */}
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
+            <button className="text-sm md:text-base px-6 py-3 rounded-full bg-white text-primary-purple font-medium hover:opacity-90 transition-opacity">
+              Direct Access
+            </button>
+            <button className="text-sm md:text-base px-6 py-3 rounded-full bg-primary-purple-light text-white font-medium hover:opacity-90 transition-opacity">
+              Brand Protection & Contract Management
+            </button>
+            <button className="text-sm md:text-base px-6 py-3 rounded-full bg-primary-purple-light text-white font-medium hover:opacity-90 transition-opacity">
+              Custom Sponsored Packages
+            </button>
+            <button className="text-sm md:text-base px-6 py-3 rounded-full bg-primary-purple-light text-white font-medium hover:opacity-90 transition-opacity">
+              Athlete Ambassadors
+            </button>
+            <button className="text-sm md:text-base px-6 py-3 rounded-full bg-primary-purple-light text-white font-medium hover:opacity-90 transition-opacity">
+              Insider Knowledge. First-Look Opportunities
+            </button>
+          </div>
 
-            {/* Brand Protection & Contract Management */}
-            <div className="bg-primary-purple-light rounded-lg p-8">
-              <h3 className="heading-3 mb-4">Brand Protection & Contract Management</h3>
-              <p className="text-neutral-gray-light leading-relaxed">
-                Your brand deserves protection at every stage. We review contracts, negotiate terms, and safeguard your interests so you avoid costly mistakes and legal pitfalls.
-              </p>
-            </div>
-
-            {/* Custom Sponsored Packages */}
-            <div className="bg-primary-purple-light rounded-lg p-8">
-              <h3 className="heading-3 mb-4">Custom Sponsored Packages</h3>
-              <p className="text-neutral-gray-light leading-relaxed">
-                No cookie-cutter deals. We design partnerships tailored to your brand&apos;s objectives, audience, and budget — from jersey sponsorships to stadium naming rights and exclusive fan experiences.
-              </p>
-            </div>
-
-            {/* Athlete Ambassadors */}
-            <div className="bg-primary-purple-light rounded-lg p-8">
-              <h3 className="heading-3 mb-4">Athlete Ambassadors</h3>
-              <p className="text-neutral-gray-light leading-relaxed">
-                Connect with the right athletes to represent your brand. We match you with talent that aligns with your values and reaches your target market authentically.
-              </p>
-            </div>
-
-            {/* Insider Knowledge. First-Look Opportunities */}
-            <div className="bg-primary-purple-light rounded-lg p-8">
-              <h3 className="heading-3 mb-4">Insider Knowledge. First-Look Opportunities</h3>
-              <p className="text-neutral-gray-light leading-relaxed">
-                Be first in line for emerging opportunities. Our network gives you early access to sponsorship deals before they hit the market, giving your brand a competitive edge.
-              </p>
-            </div>
+          {/* Service Content - Direct Access (Default) */}
+          <div className="max-w-4xl mx-auto text-center">
+            <h3 className="text-3xl md:text-4xl font-semibold mb-8 text-white">
+              DIRECT ACCESS
+            </h3>
+            <p className="text-lg text-neutral-gray-light leading-relaxed">
+              Go straight to the decision-makers from 70+ top clubs and leagues.
+            </p>
+            <p className="text-lg text-neutral-gray-light leading-relaxed mt-4">
+              We know who matters and we know how to get you in front of them. Whether it&apos;s club owners, league executives, or athletes, we make sure your brand connects directly with the people who can say yes.
+            </p>
           </div>
         </div>
       </section>
@@ -395,10 +385,10 @@ export default function Home() {
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <div>
-              <h2 className="heading-1 mb-2">
+              <h2 className="text-base font-normal mb-4" style={{color: 'rgb(255, 0, 82)'}}>
                 CONTACT US
               </h2>
-              <p className="text-2xl md:text-3xl font-semibold mb-6 text-neutral-gray-light">
+              <p className="text-2xl md:text-3xl font-semibold mb-6 text-white">
                 See It. Feel It. Live It.
               </p>
               <p className="text-neutral-gray-light mb-8 leading-relaxed">

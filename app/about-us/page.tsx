@@ -169,17 +169,17 @@ export default function AboutUs() {
       </section>
 
       {/* Contact Us - Get A Winning Edge */}
-      <section className="section-padding">
+      <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <div>
-              <h2 className="heading-1 mb-2">
+              <h2 className="text-base font-normal mb-4" style={{color: 'rgb(255, 0, 82)'}}>
                 CONTACT US
               </h2>
-              <p className="text-2xl md:text-3xl font-semibold mb-6 text-neutral-gray-light">
+              <p className="text-2xl md:text-3xl font-semibold mb-6 text-primary-purple">
                 Get A Winning Edge.
               </p>
-              <p className="text-neutral-gray-light mb-8 leading-relaxed">
+              <p className="text-gray-700 mb-8 leading-relaxed">
                 Drive real business impact, unlock global audiences, and create moments that fans never forget. We&apos;re waiting to hear from you.
               </p>
             </div>
