@@ -5,14 +5,18 @@ import ContactForm from '@/components/ContactForm'
 export default function AboutUs() {
   const testimonials = [
     {
-      quote: "Our existing partners know how valuable our network is because we've been fostering synergies and opportunities between them since our foundation. Now, through Chiliz Sports more clubs, rights holders and brands from sports, crypto and beyond will be able to tap into our remarkable network.",
+      title: "We know sports clubs very well.",
+      quote: "We know sports clubs and sports properties very well because we've been serving them and their fans for over six years.",
       author: "Alexandre Dreyfus",
-      role: ""
+      role: "",
+      image: "alex.png"
     },
     {
-      quote: "The sports sponsorship industry can be a complex world to navigate. Daniel and the team at Chiliz Sports have seen it all, and can provide the essential guidance needed to ensure you create partnerships that really deliver.",
-      author: "Daniel Madjetko",
-      role: ""
+      title: "Fostering synergies and opportunities.",
+      quote: "Our existing partners know how valuable our network is because we've been fostering synergies and opportunities between them since our foundation.\n\nNow, through Chiliz Sports more clubs, rights holders and brands from sports, crypto and beyond will be able to tap into our remarkable network.",
+      author: "Daniel Maglietta",
+      role: "",
+      image: "daniel.png"
     },
   ]
 
@@ -57,8 +61,11 @@ export default function AboutUs() {
 
         <div className="relative z-10 container-custom text-center">
           <h1 className="heading-hero mb-6">
-            THE SPORTS PARTNERSHIP INSIDERS
+            The Sports<br />Partnership Insiders.
           </h1>
+          <p className="text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
+            We know the game because we&apos;ve played it. From global brands to elite clubs and athletes, we&apos;ve been on every side of the sponsorship table. That experience — and our unrivalled network — is what makes us different.
+          </p>
         </div>
       </section>
 
@@ -66,22 +73,27 @@ export default function AboutUs() {
       <section className="section-padding">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="image-placeholder aspect-square">
-              <div className="text-white text-2xl font-bold">
-                PLACEHOLDER-WHO-WE-ARE-IMAGE
-                <div className="text-sm mt-2">Large purple gradient visual</div>
-              </div>
+            <div className="relative aspect-square rounded-lg overflow-hidden">
+              <Image
+                src="/who-we-are.png"
+                alt="Who We Are - Chiliz Sports team"
+                fill
+                className="object-cover"
+              />
             </div>
 
             <div>
               <h2 className="heading-1 mb-6">
                 Who We Are?
               </h2>
-              <p className="text-neutral-gray-light mb-4">
-                We have built a global sporting network of more than 70+ elite teams and organisations, so  we know what it takes to succeed in the world of  sports sponsorship.  Tap our expertise, insider knowledge, connections and make every partnership a winner.
+              <p className="text-neutral-gray-light mb-6 leading-relaxed">
+                Led by Daniel Maglietta, a vastly experienced commercial leader in the sports industry, Chiliz Sports isn&apos;t a traditional agency. We&apos;re insiders who&apos;ve built one of the most powerful sports networks in the world — and now we use it to unlock opportunities for brands, clubs, and athletes.
+              </p>
+              <p className="text-neutral-gray-light mb-8 leading-relaxed">
+                We&apos;ve sat on both sides of the table. We&apos;ve been the sponsor, the negotiator, and the rights holder. That experience gives us a unique perspective on how to create partnerships that work — not just on paper, but in practice.
               </p>
               <Link href="/contact" className="btn-primary">
-                LET&apos;S TALK
+                Let&apos;s TALK
               </Link>
             </div>
           </div>
@@ -91,19 +103,27 @@ export default function AboutUs() {
       {/* What We Do */}
       <section className="section-padding bg-primary-purple-light">
         <div className="container-custom">
-          <h2 className="heading-1 mb-6">
-            What We Do ?
-          </h2>
-          <div className="max-w-4xl">
-            <p className="text-neutral-gray-light mb-4">
-              Sports sponsorship is no longer just about visibility. We specialize in leveraging the business potential that sports sponsorship uniquely offers.
-            </p>
-            <p className="text-neutral-gray-light mb-6">
-              With partnerships spanning 70+ football clubs across the UK, Spain, Italy, France, Brazil, Argentina, South Korea, Switzerland, Mexico, Colombia, Indonesia, Malaysia, Croatia, and more — we have built one of the most extensive networks in global football.
-            </p>
-            <p className="text-neutral-gray-light mb-6">
-              But more than access, we bring something deeper: cultural insight, deal-making experience, and a proven ability to match brands with the right opportunities for measurable impact.
-            </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="heading-1 mb-6">
+                What We Do?
+              </h2>
+              <p className="text-neutral-gray-light mb-6 leading-relaxed">
+                We cut through the noise of the sports sponsorship maze. With direct access to clubs, leagues, talent, and investors, we connect brands with the decision-makers that matter.
+              </p>
+              <p className="text-neutral-gray-light mb-6 leading-relaxed">
+                From defining your objectives to negotiating and activating deals, we make sure every partnership delivers measurable impact and long-term value.
+              </p>
+            </div>
+
+            <div className="relative aspect-square rounded-lg overflow-hidden">
+              <Image
+                src="/what-we-do.png"
+                alt="What We Do - Chiliz Sports services"
+                fill
+                className="object-cover"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -113,23 +133,21 @@ export default function AboutUs() {
         <div className="container-custom">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {testimonials.map((testimonial, index) => (
-              <div key={index} className="flex gap-6">
-                <div className="text-accent-pink text-6xl leading-none">&ldquo;</div>
-                <div className="flex-1">
-                  <p className="text-neutral-gray-light mb-6">{testimonial.quote}</p>
-                  <div className="flex items-center gap-4">
-                    <div className="relative w-16 h-16 rounded-full flex-shrink-0 overflow-hidden">
-                      <Image
-                        src={`/portrait-${index + 5}.png`}
-                        alt={`${testimonial.author} portrait`}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                    <div>
-                      <p className="font-semibold">{testimonial.author}</p>
-                      {testimonial.role && <p className="text-sm text-neutral-gray-light">{testimonial.role}</p>}
-                    </div>
+              <div key={index} className="bg-primary-purple-light rounded-lg p-8">
+                <h3 className="heading-3 mb-4">{testimonial.title}</h3>
+                <p className="text-neutral-gray-light mb-6 leading-relaxed whitespace-pre-line">{testimonial.quote}</p>
+                <div className="flex items-center gap-4">
+                  <div className="relative w-16 h-16 rounded-full flex-shrink-0 overflow-hidden">
+                    <Image
+                      src={`/${testimonial.image}`}
+                      alt={`${testimonial.author} portrait`}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div>
+                    <p className="font-semibold">{testimonial.author}</p>
+                    {testimonial.role && <p className="text-sm text-neutral-gray-light">{testimonial.role}</p>}
                   </div>
                 </div>
               </div>
@@ -142,27 +160,27 @@ export default function AboutUs() {
       <section className="section-padding bg-primary-purple-light">
         <div className="container-custom">
           <h2 className="heading-1 mb-6">
-            Part of The Chiliz Group
+            Part of The Chiliz Group.
           </h2>
-          <p className="text-neutral-gray-light max-w-4xl mb-8">
+          <p className="text-neutral-gray-light max-w-4xl leading-relaxed">
             Chiliz is the global leader in blockchain for sport and entertainment. We pioneered Fan Tokens™ and Socios.com - the platform where fans hold and trade 70+ Fan Tokens™ and unlock exclusive rewards, experiences, and access with the world&apos;s biggest clubs, including FC Barcelona, PSG, Manchester City, Juventus, and Inter Milan.
-          </p>
-          <p className="text-neutral-gray-light max-w-4xl">
-            That global network isn&apos;t window dressing. It&apos;s active, ongoing, and directly accessible through Chiliz Sports. We leverage those relationships to open doors, accelerate negotiations, and deliver results that independent agencies simply can&apos;t match.
           </p>
         </div>
       </section>
 
-      {/* Get A Winning Edge */}
+      {/* Contact Us - Get A Winning Edge */}
       <section className="section-padding">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <div>
-              <h2 className="heading-1 mb-6">
-                Get A Winning Edge
+              <h2 className="heading-1 mb-2">
+                CONTACT US
               </h2>
-              <p className="text-neutral-gray-light mb-8">
-                The global sports landscape moves fast and we&apos;ve been part of it for years. Whether you need introductions, deal structuring, negotiations, or activation strategy, Chiliz Sports brings the commercial expertise and access you need to win. Don&apos;t settle for hype seating. When sports partnerships really matter to your business, go with the insiders who&apos;ve already built the connections you&apos;ll need.
+              <p className="text-2xl md:text-3xl font-semibold mb-6 text-neutral-gray-light">
+                Get A Winning Edge.
+              </p>
+              <p className="text-neutral-gray-light mb-8 leading-relaxed">
+                Drive real business impact, unlock global audiences, and create moments that fans never forget. We&apos;re waiting to hear from you.
               </p>
             </div>
 

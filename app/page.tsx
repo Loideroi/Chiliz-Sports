@@ -21,39 +21,43 @@ export default function Home() {
     {
       quote: "In today's fast-moving sports industry, timing and trust are everything. Daniel and the team at Chiliz Sports know how to connect brands with the right opportunities at exactly the right moment. If you want partnerships that are authentic and impactful, they're the ones to call.",
       author: "Fabio Cannavaro",
-      role: ""
+      role: "",
+      image: "cannavaro.png"
+    },
+    {
+      quote: "My experience working with Daniel has been very positive. If you want to succeed in the complex world of elite level sports sponsorship, then get in touch with Chiliz Sports and let them find the right fit for you.",
+      author: "Christian Vieri",
+      role: "",
+      image: "vieri.png"
     },
     {
       quote: "The sports sponsorship industry can be a complex world to navigate. Daniel and the team at Chiliz Sports have seen it all, and can provide the essential guidance needed to ensure you create partnerships that really deliver.",
-      author: "Christian Vieri",
-      role: ""
+      author: "Kang in Lee",
+      role: "",
+      image: "kang.png"
     },
     {
       quote: "If you want to make your next sports sponsorship a success, it's simple. Get in touch with Daniel and the team at Chiliz Sports.",
-      author: "Kang in Lee",
-      role: ""
-    },
-    {
-      quote: "In today's fast-moving sports industry, timing and trust are everything. Daniel and the team at Chiliz Sports know how to connect brands with the right opportunities at exactly the right moment. If you want partnerships that are authentic and impactful, they're the ones to call.",
       author: "Javi Guerra",
-      role: ""
+      role: "",
+      image: "javi.png"
     },
   ]
 
   const caseStudies = [
     {
-      title: "Inter announce Socios.com as new front of shirt partner",
-      description: "Inter announce Socios.com as new front of shirt partner.",
+      title: "Inter announce Socios.com as new front of shirt partner.",
+      description: "Read More",
       link: "https://www.socios.com/a-new-era-begins-inter-announce-socios-com-as-new-front-of-shirt-partner-for-2021-22-season/"
     },
     {
       title: "Official Partner of Liga Serie A",
-      description: "Official Partner of Liga Serie A.",
+      description: "Read More",
       link: "https://www.socios.com/lega-serie-a-announce-socios-com-partnership/"
     },
     {
-      title: "Blockchain-powered fan engagement",
-      description: "Blockchain-powered fan engagement.",
+      title: "Blockchain-powered fan engagement.-",
+      description: "Read More",
       link: "https://www.socios.com/7-teams-in-7-days-blockchain-powered-fan-engagement-giants-socios-com-set-for-major-us-growth/"
     },
   ]
@@ -102,17 +106,17 @@ export default function Home() {
             Chiliz Sports
           </h1>
           <h2 className="text-2xl md:text-3xl font-semibold mb-6">
-            Get The Winning Perspective
+            When Access Matters, We&apos;re Already Inside.
           </h2>
           <p className="text-base md:text-lg mb-8 max-w-3xl mx-auto leading-relaxed">
-            When Access Matters, We&apos;re Already Inside. Sports sponsorship isn&apos;t about luck. It&apos;s about knowing who to call, what to say, and how to close. At Chiliz Sports, we&apos;ve sat on your side of the table, so we know the risks, the shortcuts, and the people who actually move the needle. Tap into insider knowledge, real connections, and proven experience to secure partnerships that elevate your brand.
+            Sports sponsorship isn&apos;t about luck. It&apos;s about knowing who to call, what to say, and how to close. At Chiliz Sports, we&apos;ve sat on your side of the table, so we know the risks, the shortcuts, and the people who actually move the needle.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact" className="btn-primary">
               LET&apos;S TALK
             </Link>
             <Link href="#how-it-works" className="btn-secondary">
-              HOW IT WORKS
+              LEARN MORE
             </Link>
           </div>
         </div>
@@ -122,7 +126,7 @@ export default function Home() {
       <section className="section-padding bg-primary-purple">
         <div className="container-custom">
           <h2 className="heading-2 text-center mb-4">
-            Tap Our Sports Network
+            Tap Our Sports Network.
           </h2>
           <p className="text-center mb-12 max-w-3xl mx-auto text-lg">
             We work with 70+ of the biggest names in sport.
@@ -142,18 +146,20 @@ export default function Home() {
       <section className="section-padding">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="image-placeholder aspect-square">
-              <div className="text-white text-2xl font-bold">
-                PLACEHOLDER-ACCESS-IS-EVERYTHING-IMAGE
-                <div className="text-sm mt-2">Large purple gradient box with abstract design</div>
-              </div>
+            <div className="relative aspect-square rounded-lg overflow-hidden">
+              <Image
+                src="/access-is-everything.png"
+                alt="Access is Everything - Chiliz Sports team connections"
+                fill
+                className="object-cover"
+              />
             </div>
 
             <div>
               <h2 className="heading-1 mb-6">
-                Access is Everything
+                Access is Everything.
               </h2>
-              <div className="space-y-4 text-neutral-gray-light">
+              <div className="space-y-4 text-neutral-gray-light leading-relaxed">
                 <p>
                   Most agencies only promise it. We deliver.
                 </p>
@@ -165,7 +171,7 @@ export default function Home() {
                 </p>
               </div>
               <Link href="/contact" className="btn-primary inline-block mt-8">
-                LET&apos;S TALK
+                BOOK A CALL
               </Link>
             </div>
           </div>
@@ -206,7 +212,7 @@ export default function Home() {
                   {/* Portrait Image */}
                   <div className="relative aspect-video w-full">
                     <Image
-                      src={`/portrait-${(index % testimonials.length) + 1}.png`}
+                      src={`/${testimonial.image}`}
                       alt={`${testimonial.author} portrait`}
                       fill
                       className="object-cover"
@@ -241,25 +247,110 @@ export default function Home() {
               <h2 className="heading-1 mb-4">
                 Insider Expertise.<br />Real Results.
               </h2>
-              <p className="text-neutral-gray-light mb-6">
-                We&apos;ve been the sponsor, the negotiator, and the client  and along the way we&apos;ve built the trust of 70+ of the biggest names in sport.
+              <p className="text-neutral-gray-light mb-6 leading-relaxed">
+                We&apos;ve been the sponsor, the negotiator, and the client — and along the way we&apos;ve built the trust of 70+ of the biggest names in sport.
               </p>
-              <p className="text-neutral-gray-light mb-6">
+              <p className="text-neutral-gray-light mb-6 leading-relaxed">
                 Those relationships give us credibility where it counts: with clubs, leagues, talent, and the people making the calls. Others are still pitching to get in the room. We&apos;re already there.
               </p>
-              <p className="text-neutral-gray-light mb-8">
+              <p className="text-neutral-gray-light mb-8 leading-relaxed">
                 Now, we put that advantage to work for you — helping brands navigate the sports maze and secure partnerships that deliver.
               </p>
               <Link href="/what-we-offer" className="btn-primary">
-                SEE WHAT WE DO
+                GET STRAIGHT ANSWERS
               </Link>
             </div>
 
-            <div className="image-placeholder aspect-square">
-              <div className="text-white text-2xl font-bold">
-                PLACEHOLDER-INSIDER-EXPERTISE-IMAGE
-                <div className="text-sm mt-2">Purple gradient visual</div>
-              </div>
+            <div className="relative aspect-square rounded-lg overflow-hidden">
+              <Image
+                src="/insider-expertise.png"
+                alt="Insider Expertise - Chiliz Sports team at work"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Deals That Deliver */}
+      <section className="section-padding bg-primary-purple">
+        <div className="container-custom">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
+              <Image
+                src="/deals-that-delivers.png"
+                alt="Deals That Deliver - Chiliz Sports"
+                fill
+                className="object-cover"
+              />
+            </div>
+
+            <div>
+              <h3 className="text-2xl md:text-3xl font-semibold mb-6">
+                Deals That Deliver.
+              </h3>
+              <p className="text-neutral-gray-light mb-8 leading-relaxed">
+                Sports sponsorship is crowded, messy, and full of dead ends. We clear the path.
+                Chiliz Sports connects you straight to the clubs, leagues, and talent that matter — with insider access you won&apos;t find anywhere else.
+              </p>
+              <p className="text-neutral-gray-light mb-8 leading-relaxed">
+                No guesswork. No wasted time. Just the right deal, done right.
+              </p>
+              <Link href="/contact" className="btn-primary">
+                LET&apos;S TALK
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Core Services */}
+      <section className="section-padding">
+        <div className="container-custom">
+          <h2 className="heading-2 text-center mb-4">
+            Core Services.
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+            {/* Direct Access */}
+            <div className="bg-primary-purple-light rounded-lg p-8">
+              <h3 className="heading-3 mb-4">Direct Access</h3>
+              <p className="text-neutral-gray-light leading-relaxed">
+                Go straight to the decision-makers from 70+ top clubs and leagues. We know who matters and we know how to get you in front of them. Whether it&apos;s club owners, league executives, or athletes, we make sure your brand connects directly with the people who can say yes.
+              </p>
+            </div>
+
+            {/* Brand Protection & Contract Management */}
+            <div className="bg-primary-purple-light rounded-lg p-8">
+              <h3 className="heading-3 mb-4">Brand Protection & Contract Management</h3>
+              <p className="text-neutral-gray-light leading-relaxed">
+                Your brand deserves protection at every stage. We review contracts, negotiate terms, and safeguard your interests so you avoid costly mistakes and legal pitfalls.
+              </p>
+            </div>
+
+            {/* Custom Sponsored Packages */}
+            <div className="bg-primary-purple-light rounded-lg p-8">
+              <h3 className="heading-3 mb-4">Custom Sponsored Packages</h3>
+              <p className="text-neutral-gray-light leading-relaxed">
+                No cookie-cutter deals. We design partnerships tailored to your brand&apos;s objectives, audience, and budget — from jersey sponsorships to stadium naming rights and exclusive fan experiences.
+              </p>
+            </div>
+
+            {/* Athlete Ambassadors */}
+            <div className="bg-primary-purple-light rounded-lg p-8">
+              <h3 className="heading-3 mb-4">Athlete Ambassadors</h3>
+              <p className="text-neutral-gray-light leading-relaxed">
+                Connect with the right athletes to represent your brand. We match you with talent that aligns with your values and reaches your target market authentically.
+              </p>
+            </div>
+
+            {/* Insider Knowledge. First-Look Opportunities */}
+            <div className="bg-primary-purple-light rounded-lg p-8">
+              <h3 className="heading-3 mb-4">Insider Knowledge. First-Look Opportunities</h3>
+              <p className="text-neutral-gray-light leading-relaxed">
+                Be first in line for emerging opportunities. Our network gives you early access to sponsorship deals before they hit the market, giving your brand a competitive edge.
+              </p>
             </div>
           </div>
         </div>
@@ -269,7 +360,7 @@ export default function Home() {
       <section className="section-padding bg-primary-purple-light">
         <div className="container-custom">
           <h2 className="heading-1 mb-12">
-            Our Case Studies
+            Our Case Studies.
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -305,13 +396,16 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <div>
               <h2 className="heading-1 mb-2">
-                Contact Us
+                CONTACT US
               </h2>
               <p className="text-2xl md:text-3xl font-semibold mb-6 text-neutral-gray-light">
                 See It. Feel It. Live It.
               </p>
-              <p className="text-neutral-gray-light mb-8">
-                We don&apos;t just pitch you on the surface. We dig deeper. Through immersive brand experiences, behind-the-scenes access, and on-ground activations, we show brands and stakeholders the full potential of sports marketing. Walk the locker room. Meet the players. Feel the energy of gameday. That&apos;s when brands stop thinking and start believing.
+              <p className="text-neutral-gray-light mb-8 leading-relaxed">
+                Want to know how your brand could partner with a sports giant? Don&apos;t just hear about it — experience it.
+              </p>
+              <p className="text-neutral-gray-light mb-8 leading-relaxed">
+                Join us for a live game, see the action up close, and let us show you exactly how partnerships come to life when you&apos;ve got the right access.
               </p>
             </div>
 
