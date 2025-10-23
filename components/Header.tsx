@@ -13,7 +13,6 @@ export default function Header() {
   const navigation = [
     { name: 'HOME', href: '/' },
     { name: 'ABOUT US', href: '/about-us' },
-    { name: 'WHAT WE OFFER', href: '/what-we-offer' },
   ]
 
   const isActive = (href: string) => pathname === href
