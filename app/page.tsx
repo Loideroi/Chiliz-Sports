@@ -66,35 +66,25 @@ export default function Home() {
     <>
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-        {/* Background Image - Desktop */}
-        <div className="absolute inset-0 z-0 hidden md:block">
+        {/* Background Image - Desktop (Fans/Crowd) */}
+        <div className="absolute inset-0 z-0">
           <Image
-            src="/hero-background.png"
-            alt="Hero background with abstract flowing design"
+            src="/hero-image-1.png"
+            alt="Chiliz Sports - Passionate fans at sporting event"
             fill
             priority
             className="object-cover"
             quality={100}
           />
+          {/* Overlay for better text readability */}
+          <div className="absolute inset-0 bg-primary-purple bg-opacity-40"></div>
         </div>
 
-        {/* Background Image - Mobile */}
-        <div className="absolute inset-0 z-0 md:hidden">
+        {/* Player Image - Right Side */}
+        <div className="absolute right-0 bottom-0 z-[5] w-full md:w-1/2 h-1/2 md:h-2/3 hidden md:block">
           <Image
-            src="/hero-background-mobile.png"
-            alt="Hero background mobile with abstract flowing design"
-            fill
-            priority
-            className="object-cover"
-            quality={100}
-          />
-        </div>
-
-        {/* Player Silhouette - Right Side */}
-        <div className="absolute right-0 bottom-0 z-[5] w-1/2 h-2/3 hidden md:block">
-          <Image
-            src="/player.png"
-            alt="Football player silhouette"
+            src="/hero-image-2.png"
+            alt="Professional athlete - Chiliz Sports"
             fill
             priority
             className="object-contain object-bottom-right"
@@ -102,12 +92,9 @@ export default function Home() {
         </div>
 
         <div className="relative z-10 container-custom text-center">
-          <h1 className="heading-hero mb-4">
-            Chiliz Sports
-          </h1>
-          <h2 className="text-2xl md:text-3xl font-semibold mb-6">
+          <h1 className="text-4xl md:text-5xl lg:text-[50px] font-normal mb-8 leading-tight">
             When Access Matters, We&apos;re Already Inside.
-          </h2>
+          </h1>
           <p className="text-base md:text-lg mb-8 max-w-3xl mx-auto leading-relaxed">
             Sports sponsorship isn&apos;t about luck. It&apos;s about knowing who to call, what to say, and how to close. At Chiliz Sports, we&apos;ve sat on your side of the table, so we know the risks, the shortcuts, and the people who actually move the needle.
           </p>
