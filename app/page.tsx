@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import ContactForm from '@/components/ContactForm'
 import EmblemCarousel from '@/components/EmblemCarousel'
+import CoreServices from '@/components/CoreServices'
 
 export default function Home() {
   const sportsIcons = [
@@ -284,45 +285,7 @@ export default function Home() {
       </section>
 
       {/* Core Services */}
-      <section className="section-padding bg-primary-purple">
-        <div className="container-custom">
-          <h2 className="heading-2 text-center mb-12">
-            Core Services.
-          </h2>
-
-          {/* Navigation Tabs */}
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
-            <button className="text-sm md:text-base px-6 py-3 rounded-full bg-white text-primary-purple font-medium hover:opacity-90 transition-opacity">
-              Direct Access
-            </button>
-            <button className="text-sm md:text-base px-6 py-3 rounded-full bg-primary-purple-light text-white font-medium hover:opacity-90 transition-opacity">
-              Brand Protection & Contract Management
-            </button>
-            <button className="text-sm md:text-base px-6 py-3 rounded-full bg-primary-purple-light text-white font-medium hover:opacity-90 transition-opacity">
-              Custom Sponsored Packages
-            </button>
-            <button className="text-sm md:text-base px-6 py-3 rounded-full bg-primary-purple-light text-white font-medium hover:opacity-90 transition-opacity">
-              Athlete Ambassadors
-            </button>
-            <button className="text-sm md:text-base px-6 py-3 rounded-full bg-primary-purple-light text-white font-medium hover:opacity-90 transition-opacity">
-              Insider Knowledge. First-Look Opportunities
-            </button>
-          </div>
-
-          {/* Service Content - Direct Access (Default) */}
-          <div className="max-w-4xl mx-auto text-center">
-            <h3 className="text-3xl md:text-4xl font-semibold mb-8 text-white">
-              DIRECT ACCESS
-            </h3>
-            <p className="text-lg text-neutral-gray-light leading-relaxed">
-              Go straight to the decision-makers from 70+ top clubs and leagues.
-            </p>
-            <p className="text-lg text-neutral-gray-light leading-relaxed mt-4">
-              We know who matters and we know how to get you in front of them. Whether it&apos;s club owners, league executives, or athletes, we make sure your brand connects directly with the people who can say yes.
-            </p>
-          </div>
-        </div>
-      </section>
+      <CoreServices />
 
       {/* Our Case Studies */}
       <section className="section-padding bg-primary-purple-light">
