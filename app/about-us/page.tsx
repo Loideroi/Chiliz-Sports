@@ -26,14 +26,16 @@ export default function AboutUs() {
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden pt-20">
         {/* Background Image (Stadium) */}
         <div className="absolute inset-0 z-0">
-          <Image
-            src="/about-hero.png"
-            alt="Chiliz Sports - Stadium atmosphere"
-            fill
-            priority
-            className="object-cover"
-            quality={100}
-          />
+          <div className="relative w-full h-full">
+            <Image
+              src="/about-hero.png"
+              alt="Chiliz Sports - Stadium atmosphere"
+              fill
+              priority
+              className="object-cover"
+              quality={100}
+            />
+          </div>
           {/* Overlay for better text readability */}
           <div className="absolute inset-0 bg-primary-purple bg-opacity-40"></div>
         </div>

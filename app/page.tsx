@@ -68,14 +68,16 @@ export default function Home() {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
         {/* Background Image (Fans/Crowd) */}
         <div className="absolute inset-0 z-0">
-          <Image
-            src="/hero-image-1.png"
-            alt="Chiliz Sports - Passionate fans at sporting event"
-            fill
-            priority
-            className="object-cover"
-            quality={100}
-          />
+          <div className="relative w-full h-full">
+            <Image
+              src="/hero-image-1.png"
+              alt="Chiliz Sports - Passionate fans at sporting event"
+              fill
+              priority
+              className="object-cover"
+              quality={100}
+            />
+          </div>
           {/* Overlay for better text readability */}
           <div className="absolute inset-0 bg-primary-purple bg-opacity-40"></div>
         </div>
