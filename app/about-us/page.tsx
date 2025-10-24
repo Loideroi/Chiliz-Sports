@@ -38,17 +38,6 @@ export default function AboutUs() {
           <div className="absolute inset-0 bg-primary-purple bg-opacity-40"></div>
         </div>
 
-        {/* Player Image - Right Side */}
-        <div className="absolute right-0 bottom-0 z-[5] w-full md:w-1/2 h-1/2 md:h-2/3 hidden md:block">
-          <Image
-            src="/hero-image-2.png"
-            alt="Professional athlete - Chiliz Sports"
-            fill
-            priority
-            className="object-contain object-bottom-right"
-          />
-        </div>
-
         <div className="relative z-10 container-custom text-center">
           <h1 className="heading-hero mb-6">
             The Sports<br />Partnership Insiders.
