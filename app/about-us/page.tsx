@@ -24,11 +24,11 @@ export default function AboutUs() {
     <>
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden pt-20">
-        {/* Background Image (Fans/Crowd) */}
+        {/* Background Image (Stadium) */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/hero-image-1.png"
-            alt="Chiliz Sports - Passionate fans at sporting event"
+            src="/about-hero.png"
+            alt="Chiliz Sports - Stadium atmosphere"
             fill
             priority
             className="object-cover"
