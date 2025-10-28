@@ -94,7 +94,7 @@ export default function Home() {
             <Link href="/contact" className="btn-primary">
               LET&apos;S TALK
             </Link>
-            <Link href="#how-it-works" className="btn-secondary">
+            <Link href="#access-is-everything" className="btn-secondary">
               LEARN MORE
             </Link>
           </div>
@@ -122,7 +122,7 @@ export default function Home() {
       </section>
 
       {/* Access is Everything */}
-      <section className="section-padding bg-white">
+      <section id="access-is-everything" className="section-padding bg-white">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="relative aspect-square rounded-lg overflow-hidden">
