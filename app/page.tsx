@@ -78,12 +78,12 @@ export default function Home() {
               className="object-cover"
               quality={100}
             />
+            {/* Overlay for better text readability */}
+            <div className="absolute inset-0 bg-primary-purple bg-opacity-40 z-10"></div>
           </div>
-          {/* Overlay for better text readability */}
-          <div className="absolute inset-0 bg-primary-purple bg-opacity-40"></div>
         </div>
 
-        <div className="relative z-10 container-custom text-center">
+        <div className="relative z-20 container-custom text-center">
           <h1 className="text-4xl md:text-5xl lg:text-[50px] font-normal mb-8 leading-tight">
             When Access Matters, We&apos;re Already Inside.
           </h1>
