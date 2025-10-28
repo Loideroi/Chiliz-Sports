@@ -21,25 +21,28 @@ export default function Header() {
     <>
       <header className="fixed top-0 left-0 right-0 z-50" style={{ backgroundColor: 'rgb(11, 5, 24)' }}>
         <nav className="container-custom py-4">
-          <div className="flex items-center justify-between">
-            {/* Logo */}
-            <Link href="/" className="flex items-center">
-              <Image
-                src="/chiliz-sports-logo.svg"
-                alt="Chiliz Sports"
-                width={180}
-                height={40}
-                priority
-              />
-            </Link>
+          {/* Desktop Layout - 3 columns */}
+          <div className="hidden md:grid grid-cols-3 items-center">
+            {/* Logo - Left */}
+            <div className="flex justify-start">
+              <Link href="/" className="flex items-center">
+                <Image
+                  src="/chiliz-sports-logo.svg"
+                  alt="Chiliz Sports"
+                  width={120}
+                  height={27}
+                  priority
+                />
+              </Link>
+            </div>
 
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
+            {/* Navigation - Center */}
+            <div className="flex items-center justify-center space-x-8">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className={`text-sm font-medium transition-colors ${
+                  className={`text-sm font-medium transition-colors uppercase ${
                     isActive(item.href)
                       ? 'text-accent-pink'
                       : 'text-white hover:text-accent-pink'
@@ -48,18 +51,36 @@ export default function Header() {
                   {item.name}
                 </Link>
               ))}
+            </div>
+
+            {/* Contact Button - Right */}
+            <div className="flex justify-end">
               <Link
                 href="/contact"
-                className="text-sm py-2 px-6 rounded-full font-medium transition-colors"
+                className="text-sm py-2 px-6 rounded-full font-medium transition-colors uppercase"
                 style={{ backgroundColor: 'rgb(255, 255, 255)', color: 'rgb(11, 5, 24)' }}
               >
                 CONTACT US
               </Link>
             </div>
+          </div>
+
+          {/* Mobile Layout */}
+          <div className="flex md:hidden items-center justify-between">
+            {/* Logo */}
+            <Link href="/" className="flex items-center">
+              <Image
+                src="/chiliz-sports-logo.svg"
+                alt="Chiliz Sports"
+                width={120}
+                height={27}
+                priority
+              />
+            </Link>
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden text-white"
+              className="text-white"
               onClick={() => setMobileMenuOpen(true)}
               aria-label="Open menu"
             >
