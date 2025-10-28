@@ -19,7 +19,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 bg-primary-purple bg-opacity-95 backdrop-blur-sm">
+      <header className="fixed top-0 left-0 right-0 z-50" style={{ backgroundColor: 'rgb(11, 5, 24)' }}>
         <nav className="container-custom py-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
@@ -48,7 +48,11 @@ export default function Header() {
                   {item.name}
                 </Link>
               ))}
-              <Link href="/contact" className="btn-primary text-sm py-2 px-6">
+              <Link
+                href="/contact"
+                className="text-sm py-2 px-6 rounded-full font-medium transition-colors"
+                style={{ backgroundColor: 'rgb(255, 255, 255)', color: 'rgb(11, 5, 24)' }}
+              >
                 CONTACT US
               </Link>
             </div>
