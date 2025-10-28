@@ -3,9 +3,9 @@ import Image from 'next/image'
 
 export default function Footer() {
   return (
-    <footer className="bg-primary-purple-dark border-t border-purple-900">
+    <footer className="bg-white border-t border-gray-200">
       <div className="container-custom py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Logo and Brand */}
           <div>
             <Link href="/" className="flex items-center mb-4">
@@ -16,49 +16,24 @@ export default function Footer() {
                 height={40}
               />
             </Link>
-            <p className="text-neutral-gray-light text-sm">
-              When Access Matters, We&apos;re Already Inside.
-            </p>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h3 className="text-white font-semibold mb-4">QUICK LINKS</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/" className="text-neutral-gray-light hover:text-accent-pink transition-colors text-sm">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link href="/about-us" className="text-neutral-gray-light hover:text-accent-pink transition-colors text-sm">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="text-neutral-gray-light hover:text-accent-pink transition-colors text-sm">
-                  Contact
-                </Link>
-              </li>
-            </ul>
           </div>
 
           {/* Policies Links */}
           <div>
-            <h3 className="text-white font-semibold mb-4">POLICIES</h3>
+            <h3 className="font-semibold mb-4" style={{ color: 'rgb(207, 133, 255)' }}>POLICIES</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/cookies-policy" className="text-neutral-gray-light hover:text-accent-pink transition-colors text-sm">
+                <Link href="/cookies-policy" className="hover:text-accent-pink transition-colors text-sm" style={{ color: 'rgb(38, 10, 64)' }}>
                   Cookies policy
                 </Link>
               </li>
               <li>
-                <Link href="/manage-cookies" className="text-neutral-gray-light hover:text-accent-pink transition-colors text-sm">
+                <Link href="/manage-cookies" className="hover:text-accent-pink transition-colors text-sm" style={{ color: 'rgb(38, 10, 64)' }}>
                   Manage cookies
                 </Link>
               </li>
               <li>
-                <Link href="/privacy-policy" className="text-neutral-gray-light hover:text-accent-pink transition-colors text-sm">
+                <Link href="/privacy-policy" className="hover:text-accent-pink transition-colors text-sm" style={{ color: 'rgb(38, 10, 64)' }}>
                   Privacy policy
                 </Link>
               </li>
@@ -67,7 +42,7 @@ export default function Footer() {
         </div>
 
         {/* Copyright and Legal Disclaimers */}
-        <div className="mt-12 pt-8 border-t border-purple-900 text-neutral-gray-light text-sm space-y-4">
+        <div className="mt-12 pt-8 border-t border-gray-200 text-sm space-y-4" style={{ color: 'rgb(38, 10, 64)' }}>
           <p className="text-center">
             © Copyright 2018 – 2025. All Rights Reserved.
           </p>
