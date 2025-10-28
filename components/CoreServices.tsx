@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 
 interface Service {
   id: string
@@ -60,10 +61,11 @@ export default function CoreServices() {
           Core Services.
         </h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          {/* Left Navigation */}
-          <div className="lg:col-span-3">
-            <div className="border border-white/20 rounded-lg p-6">
+        {/* Desktop layout with fixed widths matching Figma */}
+        <div className="hidden lg:flex gap-6 mx-auto" style={{ maxWidth: '1360px' }}>
+          {/* Left Navigation - 341px */}
+          <div style={{ width: '341px', height: '314px' }}>
+            <div className="border border-white/20 rounded-lg p-6 h-full">
               <nav className="space-y-2">
                 {services.map((service) => (
                   <button
@@ -82,32 +84,90 @@ export default function CoreServices() {
             </div>
           </div>
 
-          {/* Right Content */}
-          <div className="lg:col-span-9">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Title Card */}
-              <div className="bg-gradient-to-br from-purple-900/50 to-purple-950/50 border border-white/10 rounded-lg p-8 flex items-center justify-center">
-                <h3 className="text-2xl md:text-3xl font-bold text-white uppercase text-center">
-                  {currentService.title}
-                </h3>
-              </div>
+          {/* Title Card - 323px with background image */}
+          <div className="relative overflow-hidden rounded-lg" style={{ width: '323px', height: '314px' }}>
+            <Image
+              src="/core-services-bg.png"
+              alt="Core Services Background"
+              fill
+              className="object-cover"
+              priority
+            />
+            <div className="absolute inset-0 flex items-center justify-center p-8">
+              <h3 className="text-2xl md:text-3xl font-bold text-white uppercase text-center relative z-10">
+                {currentService.title}
+              </h3>
+            </div>
+          </div>
 
-              {/* Content Card */}
-              <div className="bg-gradient-to-br from-purple-900/30 to-purple-950/30 border border-white/10 rounded-lg p-8">
-                <div className="text-neutral-gray-light leading-relaxed whitespace-pre-line">
-                  {currentService.content}
-                </div>
-                {currentService.bullets && (
-                  <ul className="mt-4 space-y-2">
-                    {currentService.bullets.map((bullet, index) => (
-                      <li key={index} className="flex items-start gap-2">
-                        <span className="text-accent-pink mt-1">•</span>
-                        <span className="text-neutral-gray-light">{bullet}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
+          {/* Content Card - 640px */}
+          <div className="bg-gradient-to-br from-purple-900/30 to-purple-950/30 border border-white/10 rounded-lg p-8" style={{ width: '640px', height: '314px' }}>
+            <div className="text-neutral-gray-light leading-relaxed whitespace-pre-line overflow-y-auto h-full">
+              {currentService.content}
+              {currentService.bullets && (
+                <ul className="mt-4 space-y-2">
+                  {currentService.bullets.map((bullet, index) => (
+                    <li key={index} className="flex items-start gap-2">
+                      <span className="text-accent-pink mt-1">•</span>
+                      <span className="text-neutral-gray-light">{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile layout - responsive */}
+        <div className="lg:hidden space-y-6">
+          {/* Navigation */}
+          <div className="border border-white/20 rounded-lg p-6">
+            <nav className="space-y-2">
+              {services.map((service) => (
+                <button
+                  key={service.id}
+                  onClick={() => setActiveService(service.id)}
+                  className={`w-full text-left px-4 py-3 rounded-lg transition-colors text-sm ${
+                    activeService === service.id
+                      ? 'text-accent-pink font-semibold'
+                      : 'text-white hover:text-accent-pink'
+                  }`}
+                >
+                  {service.title}
+                </button>
+              ))}
+            </nav>
+          </div>
+
+          {/* Title Card */}
+          <div className="relative overflow-hidden rounded-lg h-48">
+            <Image
+              src="/core-services-bg.png"
+              alt="Core Services Background"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 flex items-center justify-center p-6">
+              <h3 className="text-2xl font-bold text-white uppercase text-center relative z-10">
+                {currentService.title}
+              </h3>
+            </div>
+          </div>
+
+          {/* Content Card */}
+          <div className="bg-gradient-to-br from-purple-900/30 to-purple-950/30 border border-white/10 rounded-lg p-6">
+            <div className="text-neutral-gray-light leading-relaxed whitespace-pre-line">
+              {currentService.content}
+              {currentService.bullets && (
+                <ul className="mt-4 space-y-2">
+                  {currentService.bullets.map((bullet, index) => (
+                    <li key={index} className="flex items-start gap-2">
+                      <span className="text-accent-pink mt-1">•</span>
+                      <span className="text-neutral-gray-light">{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
           </div>
         </div>
