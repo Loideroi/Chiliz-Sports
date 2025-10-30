@@ -4,7 +4,12 @@ import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
-import MobileMenu from './MobileMenu'
+import dynamic from 'next/dynamic'
+
+// Lazy load mobile menu - only loaded when user opens it
+const MobileMenu = dynamic(() => import('./MobileMenu'), {
+  ssr: false
+})
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -19,7 +24,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50" style={{ backgroundColor: 'rgb(11, 5, 24)' }}>
+      <header className="fixed top-0 left-0 right-0 z-50" style={{ backgroundColor: 'rgba(11, 5, 24, 0.8)', borderBottom: '1px solid rgba(255, 255, 255, 0.2)' }}>
         <nav className="container-custom py-4">
           {/* Desktop Layout - 3 columns */}
           <div className="hidden md:grid grid-cols-3 items-center">
@@ -30,7 +35,7 @@ export default function Header() {
                   src="/chiliz-sports-logo.svg"
                   alt="Chiliz Sports"
                   width={120}
-                  height={27}
+                  height={24}
                   priority
                 />
               </Link>
@@ -56,7 +61,7 @@ export default function Header() {
             {/* Contact Button - Right */}
             <div className="flex justify-end">
               <Link
-                href="/contact"
+                href="#contact"
                 className="text-sm py-2 px-6 rounded-full font-medium transition-colors uppercase"
                 style={{ backgroundColor: 'rgb(255, 255, 255)', color: 'rgb(11, 5, 24)' }}
               >
@@ -73,7 +78,7 @@ export default function Header() {
                 src="/chiliz-sports-logo.svg"
                 alt="Chiliz Sports"
                 width={120}
-                height={27}
+                height={24}
                 priority
               />
             </Link>

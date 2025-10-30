@@ -38,7 +38,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                   src="/chiliz-sports-logo.svg"
                   alt="Chiliz Sports"
                   width={180}
-                  height={40}
+                  height={36}
                   priority
                 />
               </Link>
@@ -87,7 +87,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
 
             {/* Contact Button */}
             <div className="p-6 flex justify-center">
-              <Link href="/contact" onClick={onClose} className="btn-primary w-full max-w-xs text-center">
+              <Link href="#contact" onClick={onClose} className="btn-primary w-full max-w-xs text-center">
                 CONTACT US
               </Link>
             </div>

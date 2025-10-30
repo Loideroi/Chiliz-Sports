@@ -6,7 +6,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const projectRoot = join(__dirname, '..');
-const inputImage = join(projectRoot, 'public', 'chiliz-logo-original.png');
+const inputImage = join(projectRoot, 'public', 'chiliz-sports-logo.svg');
 const outputDir = join(projectRoot, 'public');
 
 const sizes = [

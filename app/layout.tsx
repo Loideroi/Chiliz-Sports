@@ -77,8 +77,8 @@ export default function RootLayout({
     logo: {
       '@type': 'ImageObject',
       url: 'https://www.chiliz-sports.com/chiliz-sports-logo.svg',
-      width: '180',
-      height: '40',
+      width: '458',
+      height: '91',
     },
     image: 'https://www.chiliz-sports.com/og-image.jpg',
     description: 'Sports partnership and sponsorship agency providing insider access to elite clubs, leagues, and talent worldwide.',

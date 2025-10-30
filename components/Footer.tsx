@@ -1,7 +1,12 @@
+'use client'
+
+import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import CookieSettingsModal from './CookieSettingsModal'
 
 export default function Footer() {
+  const [isModalOpen, setIsModalOpen] = useState(false)
   return (
     <footer className="bg-white border-t border-gray-200">
       <div className="container-custom py-12">
@@ -13,14 +18,14 @@ export default function Footer() {
                 src="/chiliz-sports-logo.svg"
                 alt="Chiliz Sports"
                 width={180}
-                height={40}
+                height={36}
               />
             </Link>
           </div>
 
           {/* Policies Links */}
           <div>
-            <h3 className="font-semibold mb-4 uppercase" style={{ color: 'rgb(207, 133, 255)' }}>Policies</h3>
+            <div className="font-semibold mb-4 uppercase" style={{ color: 'rgb(207, 133, 255)' }}>Policies</div>
             <div className="flex flex-wrap gap-4 md:gap-6 text-sm uppercase">
               <Link href="/cookies-policy" className="hover:text-accent-pink transition-colors" style={{ color: 'rgb(38, 10, 64)' }}>
                 Cookies policy
@@ -28,18 +33,22 @@ export default function Footer() {
               <Link href="/legal-notice" className="hover:text-accent-pink transition-colors" style={{ color: 'rgb(38, 10, 64)' }}>
                 Legal Notice
               </Link>
-              <Link href="/manage-cookies" className="hover:text-accent-pink transition-colors" style={{ color: 'rgb(38, 10, 64)' }}>
-                Manage cookies
-              </Link>
-              <Link href="/privacy-policy" className="hover:text-accent-pink transition-colors" style={{ color: 'rgb(38, 10, 64)' }}>
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="hover:text-accent-pink transition-colors"
+                style={{ color: 'rgb(38, 10, 64)' }}
+              >
+                MANAGE COOKIES
+              </button>
+              <a href="https://www.chiliz.com/privacy-policy/" target="_blank" rel="noopener noreferrer" className="hover:text-accent-pink transition-colors" style={{ color: 'rgb(38, 10, 64)' }}>
                 Privacy policy
-              </Link>
+              </a>
             </div>
           </div>
         </div>
 
         {/* Copyright and Legal Disclaimers */}
-        <div className="mt-12 pt-8 border-t border-gray-200 text-sm space-y-4" style={{ color: 'rgb(38, 10, 64)' }}>
+        <div className="mt-12 pt-8 border-t border-gray-200 text-sm space-y-2" style={{ color: 'rgb(38, 10, 64)' }}>
           <p>
             © Copyright 2018 – 2025. All Rights Reserved.
           </p>
@@ -51,6 +60,12 @@ export default function Footer() {
           </p>
         </div>
       </div>
+
+      {/* Cookie Settings Modal */}
+      <CookieSettingsModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </footer>
   )
 }
