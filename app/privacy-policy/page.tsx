@@ -1,5 +1,6 @@
 export const metadata = {
   title: 'Privacy Policy | Chiliz Sports',
+  description: 'Read our privacy policy to understand how Chiliz Sports collects, uses, and protects your personal information in accordance with data protection regulations.',
 }
 
 export default function PrivacyPolicy() {

@@ -195,6 +195,16 @@ export default function ContactForm({
       setSubmitStatus('success')
       reset()
 
+      // Track successful form submission in Google Analytics
+      if (typeof window !== 'undefined' && typeof window.gtag !== 'undefined') {
+        window.gtag('event', 'form_submit', {
+          event_category: 'Contact',
+          event_label: 'Contact Form',
+          value: 1
+        })
+        console.log('GA event tracked: form_submit')
+      }
+
       // Reset Turnstile widget
       if (window.turnstile && turnstileWidgetId) {
         window.turnstile.reset(turnstileWidgetId)
@@ -206,6 +216,16 @@ export default function ContactForm({
     } catch (error) {
       console.error('Form submission error:', error)
       setSubmitStatus('error')
+
+      // Track form submission error in Google Analytics
+      if (typeof window !== 'undefined' && typeof window.gtag !== 'undefined') {
+        window.gtag('event', 'form_error', {
+          event_category: 'Contact',
+          event_label: 'Contact Form',
+          error_message: error instanceof Error ? error.message : 'Unknown error'
+        })
+        console.log('GA event tracked: form_error')
+      }
 
       // Reset error message after 5 seconds
       setTimeout(() => setSubmitStatus('idle'), 5000)
@@ -225,6 +245,7 @@ export default function ContactForm({
       <Script
         src="https://challenges.cloudflare.com/turnstile/v0/api.js"
         strategy="lazyOnload"
+        defer
         onLoad={() => {
           console.log('Turnstile script loaded')
           setTurnstileLoaded(true)
@@ -281,13 +302,9 @@ export default function ContactForm({
             className="mt-1 mr-3 w-4 h-4 accent-accent-pink"
           />
           <label htmlFor="agreeToTerms" className={labelClass}>
-            Yes, I&apos;d like to receive documentation and stay updated on the latest news, offers, and news. I can unsubscribe anytime. For more details, see our{' '}
+            Yes, I&apos;m interested in receiving information, newsletters, offers, and the latest updates from you. I agree that my personal data will be processed in accordance with the site&apos;s{' '}
             <a href="https://www.chiliz.com/privacy-policy/" className="text-accent-pink hover:underline" target="_blank" rel="noopener noreferrer">
-              privacy policy
-            </a>
-            . By clicking submit, you agree that the info you provide will be processed in accordance with our privacy policy and you consent to being contacted about this through the link in your emails. For more information, see our{' '}
-            <a href="https://www.chiliz.com/privacy-policy/" className="text-accent-pink hover:underline" target="_blank" rel="noopener noreferrer">
-              privacy policy
+              Privacy Policy
             </a>
             .
           </label>
@@ -298,12 +315,12 @@ export default function ContactForm({
 
         {/* Cloudflare Turnstile Widget */}
         <div>
-          <div id="turnstile-widget" className="flex justify-center"></div>
+          <div id="turnstile-widget" className="flex justify-start"></div>
           {turnstileError && (
-            <p className="mt-2 text-sm text-accent-pink text-center">{turnstileError}</p>
+            <p className="mt-2 text-sm text-accent-pink">{turnstileError}</p>
           )}
           {!turnstileLoaded && !turnstileError && (
-            <p className="text-sm text-neutral-gray-light text-center">Loading security verification...</p>
+            <p className="text-sm text-neutral-gray-light">Loading security verification...</p>
           )}
         </div>
 

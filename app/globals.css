@@ -1,24 +1,38 @@
 @import "tailwindcss";
 
-/* ATYP Display Font - For Headers */
+/* ===== ATYP DISPLAY FONT - For Headers and Display Text ===== */
+
+/* Thin - 100 */
 @font-face {
   font-family: 'ATYP Display';
-  src: url('/fonts/atyp-display/AtypDisplay-Bold.woff2') format('woff2'),
-       url('/fonts/atyp-display/AtypDisplay-Bold.woff') format('woff');
-  font-weight: 700;
+  src: url('/fonts/atyp-display/AtypDisplay-Thin.woff2') format('woff2'),
+       url('/fonts/atyp-display/AtypDisplay-Thin.woff') format('woff');
+  font-weight: 100;
   font-style: normal;
   font-display: swap;
 }
 
+/* Light - 300 */
 @font-face {
   font-family: 'ATYP Display';
-  src: url('/fonts/atyp-display/AtypDisplay-Semibold.woff2') format('woff2'),
-       url('/fonts/atyp-display/AtypDisplay-Semibold.woff') format('woff');
-  font-weight: 600;
+  src: url('/fonts/atyp-display/AtypDisplay-Light.woff2') format('woff2'),
+       url('/fonts/atyp-display/AtypDisplay-Light.woff') format('woff');
+  font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 
+/* Regular - 400 */
+@font-face {
+  font-family: 'ATYP Display';
+  src: url('/fonts/atyp-display/AtypDisplay-Regular.woff2') format('woff2'),
+       url('/fonts/atyp-display/AtypDisplay-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Medium - 500 */
 @font-face {
   font-family: 'ATYP Display';
   src: url('/fonts/atyp-display/AtypDisplay-Medium.woff2') format('woff2'),
@@ -28,43 +42,86 @@
   font-display: swap;
 }
 
-/* ATYP Text Font - For Body */
+/* Semibold - 600 */
 @font-face {
-  font-family: 'ATYP Text';
-  src: url('/fonts/atyp-text/AtypText-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'ATYP Text';
-  src: url('/fonts/atyp-text/AtypText-Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'ATYP Text';
-  src: url('/fonts/atyp-text/AtypText-Semibold.ttf') format('truetype');
+  font-family: 'ATYP Display';
+  src: url('/fonts/atyp-display/AtypDisplay-Semibold.woff2') format('woff2'),
+       url('/fonts/atyp-display/AtypDisplay-Semibold.woff') format('woff');
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 
+/* Bold - 700 */
+@font-face {
+  font-family: 'ATYP Display';
+  src: url('/fonts/atyp-display/AtypDisplay-Bold.woff2') format('woff2'),
+       url('/fonts/atyp-display/AtypDisplay-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ===== ATYP TEXT FONT - For Body Text ===== */
+
+/* Thin - 100 */
 @font-face {
   font-family: 'ATYP Text';
-  src: url('/fonts/atyp-text/AtypText-Light.ttf') format('truetype');
+  src: url('/fonts/atyp-text/AtypText-Thin.woff2') format('woff2');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Light - 300 */
+@font-face {
+  font-family: 'ATYP Text';
+  src: url('/fonts/atyp-text/AtypText-Light.woff2') format('woff2');
   font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Regular - 400 */
+@font-face {
+  font-family: 'ATYP Text';
+  src: url('/fonts/atyp-text/AtypText-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Medium - 500 */
+@font-face {
+  font-family: 'ATYP Text';
+  src: url('/fonts/atyp-text/AtypText-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Semibold - 600 */
+@font-face {
+  font-family: 'ATYP Text';
+  src: url('/fonts/atyp-text/AtypText-Semibold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Bold - 700 */
+@font-face {
+  font-family: 'ATYP Text';
+  src: url('/fonts/atyp-text/AtypText-Bold.woff2') format('woff2');
+  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
 @theme {
   /* Colors */
-  --color-primary-purple: #1a0033;
-  --color-primary-purple-light: #2d1350;
+  --color-primary-purple: #0b0518;
+  --color-primary-purple-light: #0b0518;
   --color-primary-purple-dark: #0d0019;
   --color-accent-pink: #ff0055;
   --color-accent-pink-light: #ff3377;
@@ -80,7 +137,7 @@
   /* Font sizes */
   --font-size-hero: 4rem;
   --font-size-hero-mobile: 2.5rem;
-  --font-size-h1: 3rem;
+  --font-size-h1: 48.83px;
   --font-size-h2: 2rem;
   --font-size-h3: 1.5rem;
 
@@ -149,7 +206,7 @@ body {
 }
 
 .btn-secondary {
-  border: 2px solid white;
+  border: 1px solid white;
   color: white;
   font-weight: 600;
   padding: 0.75rem 2rem;
@@ -182,6 +239,7 @@ body {
   font-family: var(--font-display);
   font-size: var(--font-size-h1);
   font-weight: 700;
+  text-transform: uppercase;
   letter-spacing: -0.05em;
   line-height: 1.2;
 }
@@ -190,6 +248,7 @@ body {
   font-family: var(--font-display);
   font-size: var(--font-size-h2);
   font-weight: 600;
+  text-transform: uppercase;
   line-height: 1.3;
 }
 
@@ -197,6 +256,7 @@ body {
   font-family: var(--font-display);
   font-size: var(--font-size-h3);
   font-weight: 600;
+  text-transform: uppercase;
   line-height: 1.4;
 }
 
@@ -212,7 +272,7 @@ body {
 }
 
 .bg-gradient-custom {
-  background: linear-gradient(135deg, #1a0033 0%, #2d1350 50%, #1a0033 100%);
+  background: linear-gradient(135deg, #0b0518 0%, #0b0518 50%, #0b0518 100%);
 }
 
 .bg-gradient-overlay {

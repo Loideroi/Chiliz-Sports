@@ -10,7 +10,7 @@ export default function Footer() {
   return (
     <footer className="bg-white border-t border-gray-200">
       <div className="container-custom py-12">
-        <div className="flex flex-col md:flex-row justify-between items-start gap-8">
+        <div className="flex flex-col gap-6 md:flex-row md:gap-20 items-start">
           {/* Logo */}
           <div>
             <Link href="/" className="flex items-center">
@@ -23,8 +23,8 @@ export default function Footer() {
             </Link>
           </div>
 
-          {/* Policies Links */}
-          <div>
+          {/* Policies Links - 80px margin on web (gap-20 = 5rem = 80px) */}
+          <div className="mt-6 md:mt-0">
             <div className="font-semibold mb-4 uppercase" style={{ color: 'rgb(207, 133, 255)' }}>Policies</div>
             <div className="flex flex-wrap gap-4 md:gap-6 text-sm uppercase">
               <Link href="/cookies-policy" className="hover:text-accent-pink transition-colors" style={{ color: 'rgb(38, 10, 64)' }}>

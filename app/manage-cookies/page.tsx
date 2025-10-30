@@ -1,35 +1,61 @@
-export const metadata = {
-  title: 'Manage Cookies | Chiliz Sports',
-}
+'use client'
+
+import { useEffect, useState } from 'react'
+import { useRouter } from 'next/navigation'
+import CookieSettingsModal from '@/components/CookieSettingsModal'
 
 export default function ManageCookies() {
-  // Redirect to Chiliz cookies policy
-  if (typeof window !== 'undefined') {
-    window.location.href = 'https://www.chiliz.com/cookies-policy/'
+  const router = useRouter()
+  const [isModalOpen, setIsModalOpen] = useState(true)
+
+  const handleClose = () => {
+    setIsModalOpen(false)
+    // Redirect to home page after closing
+    router.push('/')
   }
 
   return (
-    <div className="pt-20 min-h-screen">
+    <div className="pt-20 min-h-screen bg-white">
       <section className="section-padding">
         <div className="container-custom max-w-4xl">
-          <h1 className="heading-1 mb-12">Manage Cookies</h1>
-          <div className="space-y-6 text-neutral-gray-light">
-            <p>Redirecting to manage your cookie preferences...</p>
+          <h1 className="text-4xl md:text-5xl font-bold mb-8 text-primary-purple uppercase">
+            Manage Cookies
+          </h1>
+
+          <div className="space-y-6 text-gray-700 leading-relaxed">
             <p>
-              If you are not redirected automatically, please{' '}
-              <a
-                href="https://www.chiliz.com/cookies-policy/"
-                className="text-accent-pink hover:underline"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                click here
-              </a>
-              .
+              Use the cookie settings modal to manage your preferences. You can choose which categories
+              of cookies you want to accept.
             </p>
+            <p>
+              Functional cookies are always active as they are essential for the website to work properly.
+            </p>
+            <div className="mt-8">
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="btn-primary"
+              >
+                Open Cookie Settings
+              </button>
+            </div>
+            <div className="mt-8 pt-8 border-t border-gray-200">
+              <p className="text-sm">
+                For more information about how we use cookies, please see our{' '}
+                <a href="/cookies-policy" className="text-accent-pink hover:underline">
+                  Cookie Policy
+                </a>
+                .
+              </p>
+            </div>
           </div>
         </div>
       </section>
+
+      {/* Cookie Settings Modal */}
+      <CookieSettingsModal
+        isOpen={isModalOpen}
+        onClose={handleClose}
+      />
     </div>
   )
 }

@@ -1,3 +1,8 @@
+export const metadata = {
+  title: 'Legal Notice | Chiliz Sports',
+  description: 'Legal notice and terms of use for Chiliz Sports website. Information about intellectual property, liabilities, governing law and website usage conditions.',
+}
+
 export default function LegalNotice() {
   return (
     <div className="min-h-screen bg-white pt-24 pb-16">

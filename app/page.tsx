@@ -2,9 +2,23 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import ContactForm from '@/components/ContactForm'
-import EmblemCarousel from '@/components/EmblemCarousel'
-import CoreServices from '@/components/CoreServices'
+import dynamic from 'next/dynamic'
+
+// Lazy load below-the-fold components for better performance
+const ContactForm = dynamic(() => import('@/components/ContactForm'), {
+  loading: () => <div className="animate-pulse h-96 bg-gray-800/20 rounded-lg"></div>,
+  ssr: false // Client-side only for form interactivity and Turnstile
+})
+
+const EmblemCarousel = dynamic(() => import('@/components/EmblemCarousel'), {
+  loading: () => <div className="animate-pulse h-32 bg-gray-800/20 rounded-lg"></div>,
+  ssr: false // Animation-heavy component, better on client
+})
+
+const CoreServices = dynamic(() => import('@/components/CoreServices'), {
+  loading: () => <div className="animate-pulse h-96 bg-gray-800/20 rounded-lg"></div>,
+  ssr: true // Static content, can benefit from SSR
+})
 
 export default function Home() {
   const sportsIcons = [
@@ -23,25 +37,25 @@ export default function Home() {
       quote: "In today's fast-moving sports industry, timing and trust are everything. Daniel and the team at Chiliz Sports know how to connect brands with the right opportunities at exactly the right moment. If you want partnerships that are authentic and impactful, they're the ones to call.",
       author: "Fabio Cannavaro",
       role: "",
-      image: "cannavaro.png"
+      image: "cannavaro.webp"
     },
     {
       quote: "My experience working with Daniel has been very positive. If you want to succeed in the complex world of elite level sports sponsorship, then get in touch with Chiliz Sports and let them find the right fit for you.",
       author: "Christian Vieri",
       role: "",
-      image: "vieri.png"
+      image: "vieri.webp"
     },
     {
       quote: "The sports sponsorship industry can be a complex world to navigate. Daniel and the team at Chiliz Sports have seen it all, and can provide the essential guidance needed to ensure you create partnerships that really deliver.",
       author: "Kang in Lee",
       role: "",
-      image: "kang.png"
+      image: "kang.webp"
     },
     {
       quote: "If you want to make your next sports sponsorship a success, it's simple. Get in touch with Daniel and the team at Chiliz Sports.",
       author: "Javi Guerra",
       role: "",
-      image: "javi.png"
+      image: "javi.webp"
     },
   ]
 
@@ -66,46 +80,70 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+      <section className="relative flex items-center justify-center overflow-hidden" style={{ minHeight: '578px' }}>
         {/* Background Image (Fans/Crowd) */}
         <div className="absolute inset-0 z-0">
           <div className="relative w-full h-full">
             <Image
-              src="/hero-image-1.png"
+              src="/hero-image-1.webp"
               alt="Chiliz Sports - Passionate fans at sporting event"
               fill
               priority
+              fetchPriority="high"
+              sizes="100vw"
               className="object-cover"
-              quality={100}
+              quality={60}
             />
-            {/* Overlay for better text readability */}
-            <div className="absolute inset-0 bg-primary-purple bg-opacity-40 z-10"></div>
+            {/* Gradient overlay matching Figma design */}
+            <div className="absolute inset-0 z-10" style={{
+              background: 'linear-gradient(180deg, rgba(11, 5, 24, 0) 0%, rgb(11, 5, 24) 100%)'
+            }}></div>
           </div>
         </div>
 
-        <div className="relative z-20 container-custom text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-[50px] font-normal mb-8 leading-tight">
-            When Access Matters, We&apos;re Already Inside.
+        <div className="relative z-20 container-custom text-center" style={{ paddingTop: '176px', paddingBottom: '120px' }}>
+          {/* Main Brand Heading */}
+          <h1 className="mb-6 flex items-center justify-center">
+            <Image
+              src="/chiliz-sports-logo.svg"
+              alt="Chiliz Sports"
+              width={458}
+              height={91}
+              priority
+              className="w-auto h-16 md:h-20 lg:h-24"
+            />
           </h1>
-          <p className="text-base md:text-lg mb-8 max-w-3xl mx-auto leading-relaxed">
+
+          {/* Tagline */}
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-6 leading-tight uppercase">
+            When Access Matters, We&apos;re Already Inside.
+          </h2>
+
+          <p className="text-sm md:text-base mb-8 max-w-2xl mx-auto leading-relaxed">
             Sports sponsorship isn&apos;t about luck. It&apos;s about knowing who to call, what to say, and how to close. At Chiliz Sports, we&apos;ve sat on your side of the table, so we know the risks, the shortcuts, and the people who actually move the needle.
           </p>
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact" className="btn-primary">
+            <Link href="#contact" className="btn-primary">
               LET&apos;S TALK
             </Link>
-            <Link href="#access-is-everything" className="btn-secondary">
+            <Link href="#access-is-everything" className="btn-secondary inline-flex items-center gap-2">
               LEARN MORE
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" className="animate-bounce">
+                <path d="M8 12L3 7L4.4 5.6L8 9.2L11.6 5.6L13 7L8 12Z"/>
+              </svg>
             </Link>
           </div>
         </div>
       </section>
 
       {/* Tap Our Sports Network */}
-      <section className="section-padding bg-primary-purple">
+      <section className="section-padding" style={{
+        background: 'linear-gradient(180deg, #0b0518 0%, #0b0518 100%)'
+      }}>
         <div className="container-custom">
           <h2 className="heading-2 text-center mb-4">
-            Tap Our Sports Network.
+            TAP OUR SPORTS NETWORK.
           </h2>
           <p className="text-center mb-12 max-w-3xl mx-auto text-lg">
             We work with 70+ of the biggest names in sport.
@@ -125,18 +163,20 @@ export default function Home() {
       <section id="access-is-everything" className="section-padding bg-white">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="relative aspect-square rounded-lg overflow-hidden">
+            <div className="relative aspect-square rounded-lg overflow-hidden order-2 lg:order-1">
               <Image
-                src="/access-is-everything.png"
+                src="/access-is-everything-2.webp"
                 alt="Access is Everything - Chiliz Sports team connections"
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                loading="lazy"
                 className="object-cover"
               />
             </div>
 
-            <div>
+            <div className="order-1 lg:order-2">
               <h2 className="heading-1 mb-6 text-primary-purple">
-                Access is Everything.
+                ACCESS IS EVERYTHING.
               </h2>
               <div className="space-y-4 text-gray-700 leading-relaxed">
                 <p>
@@ -149,7 +189,7 @@ export default function Home() {
                   We know how easy it is to waste months chasing introductions, hitting dead ends, or signing misaligned deals. That&apos;s why we go straight to the decision-makers, define clear goals, and build activations that stick.
                 </p>
               </div>
-              <Link href="/contact" className="btn-primary inline-block mt-8">
+              <Link href="#contact" className="btn-primary inline-block mt-8">
                 BOOK A CALL
               </Link>
             </div>
@@ -158,49 +198,62 @@ export default function Home() {
       </section>
 
       {/* Trusted by the best */}
-      <section className="section-padding bg-primary-purple-light">
-        <div className="container-custom">
+      <section className="relative section-padding overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/abstract-5.webp"
+            alt="Abstract gradient background"
+            fill
+            sizes="100vw"
+            className="object-cover"
+          />
+          {/* Dark gradient overlay */}
+          <div className="absolute inset-0" style={{
+            background: 'linear-gradient(180deg, rgba(11, 5, 24, 0.3) 0%, rgba(11, 5, 24, 0.5) 100%)'
+          }}></div>
+        </div>
+
+        <div className="container-custom relative z-10">
           <h2 className="heading-1 mb-12">
-            Trusted by the best.
+            TRUSTED BY THE BEST.
           </h2>
 
           {/* Horizontal Scrolling Carousel */}
-          <div className="relative overflow-hidden">
+          <div className="relative overflow-x-auto scrollbar-hide" id="testimonials-carousel">
             <style jsx>{`
-              @keyframes scroll-testimonials {
-                0% {
-                  transform: translateX(0);
-                }
-                100% {
-                  transform: translateX(-50%);
-                }
-              }
-
-              .animate-scroll-testimonials {
-                animation: scroll-testimonials 40s linear infinite;
-              }
-
-              .animate-scroll-testimonials:hover {
-                animation-play-state: paused;
+              .scrollbar-hide::-webkit-scrollbar {
+                display: none;
               }
             `}</style>
 
-            <div className="flex animate-scroll-testimonials gap-8">
-              {[...testimonials, ...testimonials].map((testimonial, index) => (
-                <div key={index} className="flex-shrink-0 w-[320px] md:w-[380px] bg-primary-purple rounded-lg overflow-hidden">
+            <div className="flex gap-8 pb-4" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+              {testimonials.map((testimonial, index) => (
+                <div key={index} className="flex-shrink-0 w-[320px] md:w-[380px] rounded-lg overflow-hidden" style={{ backgroundColor: 'rgba(49, 0, 77, 0.5)' }}>
                   {/* Portrait Image */}
                   <div className="relative aspect-video w-full">
                     <Image
                       src={`/${testimonial.image}`}
                       alt={`${testimonial.author} portrait`}
                       fill
+                      sizes="(max-width: 768px) 320px, 380px"
+                      loading="lazy"
                       className="object-cover"
                     />
                   </div>
 
                   <div className="p-6">
-                    <div className="text-accent-pink text-4xl mb-4">&ldquo;</div>
-                    <p className="text-sm mb-4 min-h-[120px]">{testimonial.quote}</p>
+                    <div className="flex gap-4">
+                      {/* Quote text */}
+                      <p className="text-sm flex-1">{testimonial.quote}</p>
+                      {/* Comma Icon aligned to right */}
+                      <div className="flex-shrink-0">
+                        <svg width="32" height="32" viewBox="0 0 56 56" fill="#FF0052">
+                          <path d="M14 35C14 29.4772 18.4772 25 24 25V14C12.9543 14 4 22.9543 4 35C4 40.5228 8.47715 46 14 46H24V35H14Z"/>
+                          <path d="M42 35C42 29.4772 46.4772 25 52 25V14C40.9543 14 32 22.9543 32 35C32 40.5228 36.4772 46 42 46H52V35H42Z"/>
+                        </svg>
+                      </div>
+                    </div>
                     <div className="mt-4">
                       <p className="font-semibold">{testimonial.author}</p>
                       {testimonial.role && <p className="text-sm text-neutral-gray-light">{testimonial.role}</p>}
@@ -211,9 +264,32 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex justify-start mt-8 space-x-2">
-            <button className="w-3 h-3 rounded-full bg-white" aria-label="Slide 1"></button>
-            <button className="w-3 h-3 rounded-full bg-neutral-gray-dark" aria-label="Slide 2"></button>
+          {/* Navigation Arrows */}
+          <div className="flex justify-center mt-8 gap-4">
+            <button
+              onClick={() => {
+                const carousel = document.getElementById('testimonials-carousel')
+                if (carousel) carousel.scrollBy({ left: -400, behavior: 'smooth' })
+              }}
+              className="w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors"
+              aria-label="Previous testimonial"
+            >
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="white">
+                <path d="M12.5 15L7.5 10L12.5 5" stroke="white" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+            <button
+              onClick={() => {
+                const carousel = document.getElementById('testimonials-carousel')
+                if (carousel) carousel.scrollBy({ left: 400, behavior: 'smooth' })
+              }}
+              className="w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors"
+              aria-label="Next testimonial"
+            >
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="white">
+                <path d="M7.5 5L12.5 10L7.5 15" stroke="white" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
           </div>
         </div>
       </section>
@@ -224,7 +300,7 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="heading-1 mb-4 text-primary-purple">
-                Insider Expertise.<br />Real Results.
+                INSIDER EXPERTISE.<br />REAL RESULTS.
               </h2>
               <p className="text-gray-700 mb-6 leading-relaxed">
                 We&apos;ve been the sponsor, the negotiator, and the client — and along the way we&apos;ve built the trust of 70+ of the biggest names in sport.
@@ -235,16 +311,18 @@ export default function Home() {
               <p className="text-gray-700 mb-8 leading-relaxed">
                 Now, we put that advantage to work for you — helping brands navigate the sports maze and secure partnerships that deliver.
               </p>
-              <Link href="/contact" className="btn-primary">
+              <Link href="#contact" className="btn-primary">
                 GET STRAIGHT ANSWERS
               </Link>
             </div>
 
             <div className="relative aspect-square rounded-lg overflow-hidden">
               <Image
-                src="/insider-expertise.png"
+                src="/insider-expertise.webp"
                 alt="Insider Expertise - Chiliz Sports team at work"
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                loading="lazy"
                 className="object-cover"
               />
             </div>
@@ -256,18 +334,20 @@ export default function Home() {
       <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
+            <div className="relative aspect-[4/3] rounded-lg overflow-hidden order-2 lg:order-1">
               <Image
-                src="/deals-that-delivers.png"
+                src="/deals-that-delivers.webp"
                 alt="Deals That Deliver - Chiliz Sports"
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                loading="lazy"
                 className="object-cover"
               />
             </div>
 
-            <div>
-              <h3 className="text-2xl md:text-3xl font-semibold mb-6 text-primary-purple">
-                Deals That Deliver.
+            <div className="order-1 lg:order-2">
+              <h3 className="text-2xl md:text-3xl font-semibold mb-6 text-primary-purple uppercase">
+                DEALS THAT DELIVER.
               </h3>
               <p className="text-gray-700 mb-8 leading-relaxed">
                 Sports sponsorship is crowded, messy, and full of dead ends. We clear the path.
@@ -276,7 +356,7 @@ export default function Home() {
               <p className="text-gray-700 mb-8 leading-relaxed">
                 No guesswork. No wasted time. Just the right deal, done right.
               </p>
-              <Link href="/contact" className="btn-primary">
+              <Link href="#contact" className="btn-primary">
                 LET&apos;S TALK
               </Link>
             </div>
@@ -288,10 +368,25 @@ export default function Home() {
       <CoreServices />
 
       {/* Our Case Studies */}
-      <section className="section-padding bg-primary-purple-light">
-        <div className="container-custom">
+      <section className="relative section-padding overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/abstract-5.webp"
+            alt="Abstract background"
+            fill
+            sizes="100vw"
+            className="object-cover"
+          />
+          {/* Dark gradient overlay */}
+          <div className="absolute inset-0" style={{
+            background: 'linear-gradient(180deg, rgba(11, 5, 24, 0.88) 0%, rgba(11, 5, 24, 0.92) 100%)'
+          }}></div>
+        </div>
+
+        <div className="container-custom relative z-10">
           <h2 className="heading-1 mb-12">
-            Our Case Studies.
+            OUR CASE STUDIES.
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -301,19 +396,21 @@ export default function Home() {
                 href={caseStudy.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-primary-purple rounded-lg overflow-hidden hover:opacity-80 transition-opacity"
+                className="rounded-lg overflow-hidden hover:opacity-80 transition-opacity"
               >
                 <div className="relative aspect-video">
                   <Image
-                    src={`/case-study-${index + 1}.png`}
+                    src={`/case-study-${index + 1}.webp`}
                     alt={caseStudy.title}
                     fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    loading="lazy"
                     className="object-cover"
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="heading-3 mb-2">{caseStudy.title}</h3>
-                  <p className="text-sm text-neutral-gray-light">{caseStudy.description}</p>
+                  <h3 className="mb-2 text-white" style={{ fontSize: '16px', fontWeight: '600' }}>{caseStudy.title}</h3>
+                  <p className="text-sm text-accent-pink">{caseStudy.description}</p>
                 </div>
               </a>
             ))}
@@ -322,16 +419,18 @@ export default function Home() {
       </section>
 
       {/* Contact Us - See it. Feel it. Live it. */}
-      <section id="contact" className="section-padding bg-primary-purple">
-        <div className="container-custom">
+      <section id="contact" className="relative section-padding overflow-hidden" style={{ backgroundColor: '#0B0518' }}>
+        {/* Removed background image */}
+
+        <div className="container-custom relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <div>
-              <h2 className="text-base font-normal mb-4" style={{color: 'rgb(255, 0, 82)'}}>
+              <div className="text-base font-normal mb-4" style={{color: 'rgb(255, 0, 82)'}}>
                 CONTACT US
+              </div>
+              <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-white uppercase">
+                SEE IT. FEEL IT. LIVE IT.
               </h2>
-              <p className="text-2xl md:text-3xl font-semibold mb-6 text-white">
-                See It. Feel It. Live It.
-              </p>
               <p className="text-neutral-gray-light mb-8 leading-relaxed">
                 Want to know how your brand could partner with a sports giant? Don&apos;t just hear about it — experience it.
               </p>

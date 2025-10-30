@@ -58,14 +58,14 @@ export default function CoreServices() {
     <section className="section-padding" style={{ backgroundColor: 'rgb(11, 5, 24)' }}>
       <div className="container-custom">
         <h2 className="heading-2 mb-12">
-          Core Services.
+          CORE SERVICES.
         </h2>
 
         {/* Desktop layout with fixed widths matching Figma */}
         <div className="hidden lg:flex gap-6 mx-auto" style={{ maxWidth: '1360px' }}>
           {/* Left Navigation - 341px */}
           <div style={{ width: '341px', height: '314px' }}>
-            <div className="border border-white/20 rounded-lg p-6 h-full">
+            <div className="border border-white/20 rounded-lg h-full" style={{ padding: '16px 24px', backgroundColor: 'rgba(49, 0, 77, 0.3)' }}>
               <nav className="space-y-2">
                 {services.map((service) => (
                   <button
@@ -87,25 +87,29 @@ export default function CoreServices() {
           {/* Title Card - 323px with background image */}
           <div className="relative overflow-hidden rounded-lg" style={{ width: '323px', height: '314px' }}>
             <Image
-              src="/core-services-bg.png"
+              src="/core-services-bg.webp"
               alt="Core Services Background"
               fill
               className="object-cover"
               priority
             />
+            {/* Gradient overlay - dark at top and bottom */}
+            <div className="absolute inset-0" style={{
+              background: 'linear-gradient(180deg, rgba(11, 5, 24, 0.6) 0%, rgba(11, 5, 24, 0) 30%, rgba(11, 5, 24, 0) 70%, rgba(11, 5, 24, 0.6) 100%)'
+            }}></div>
             <div className="absolute inset-0 flex items-center justify-center p-8">
-              <h3 className="text-2xl md:text-3xl font-bold text-white uppercase text-center relative z-10">
+              <div className="text-2xl md:text-3xl font-bold text-white uppercase text-center relative z-10">
                 {currentService.title}
-              </h3>
+              </div>
             </div>
           </div>
 
           {/* Content Card - 640px */}
-          <div className="bg-gradient-to-br from-purple-900/30 to-purple-950/30 border border-white/10 rounded-lg p-8" style={{ width: '640px', height: '314px' }}>
-            <div className="text-neutral-gray-light leading-relaxed whitespace-pre-line overflow-y-auto h-full">
+          <div className="border border-white/10 rounded-lg p-8 flex items-center justify-center" style={{ width: '640px', height: '314px', background: 'linear-gradient(135deg, #31004D 0%, #0B0518 100%)' }}>
+            <div className="text-neutral-gray-light leading-relaxed whitespace-pre-line overflow-y-auto h-full text-center flex flex-col justify-center">
               {currentService.content}
               {currentService.bullets && (
-                <ul className="mt-4 space-y-2">
+                <ul className="mt-4 space-y-2 text-left">
                   {currentService.bullets.map((bullet, index) => (
                     <li key={index} className="flex items-start gap-2">
                       <span className="text-accent-pink mt-1">•</span>
@@ -142,15 +146,19 @@ export default function CoreServices() {
           {/* Title Card */}
           <div className="relative overflow-hidden rounded-lg h-48">
             <Image
-              src="/core-services-bg.png"
+              src="/core-services-bg.webp"
               alt="Core Services Background"
               fill
               className="object-cover"
             />
+            {/* Gradient overlay - dark at top and bottom */}
+            <div className="absolute inset-0" style={{
+              background: 'linear-gradient(180deg, rgba(11, 5, 24, 0.6) 0%, rgba(11, 5, 24, 0) 30%, rgba(11, 5, 24, 0) 70%, rgba(11, 5, 24, 0.6) 100%)'
+            }}></div>
             <div className="absolute inset-0 flex items-center justify-center p-6">
-              <h3 className="text-2xl font-bold text-white uppercase text-center relative z-10">
+              <div className="text-2xl font-bold text-white uppercase text-center relative z-10">
                 {currentService.title}
-              </h3>
+              </div>
             </div>
           </div>
 
