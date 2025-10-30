@@ -15,7 +15,7 @@ export default function Footer() {
           <div>
             <Link href="/" className="flex items-center">
               <Image
-                src="/chiliz-sports-logo.svg"
+                src="/chiliz-sports-logo-colors.svg"
                 alt="Chiliz Sports"
                 width={180}
                 height={36}

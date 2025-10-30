@@ -206,17 +206,10 @@ export default function RootLayout({
           fetchPriority="high"
         />
 
-        {/* Font Preloading - Preload critical body text fonts (AtypText) */}
+        {/* Font Preloading - Critical fonts for above-the-fold content */}
         <link
           rel="preload"
           href="/fonts/atyp-text/AtypText-Regular.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          href="/fonts/atyp-text/AtypText-Medium.woff2"
           as="font"
           type="font/woff2"
           crossOrigin="anonymous"
@@ -230,7 +223,14 @@ export default function RootLayout({
         />
         <link
           rel="preload"
-          href="/fonts/atyp-text/AtypText-Bold.woff2"
+          href="/fonts/atyp-display/AtypDisplay-Semibold.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/atyp-display/AtypDisplay-Bold.woff2"
           as="font"
           type="font/woff2"
           crossOrigin="anonymous"

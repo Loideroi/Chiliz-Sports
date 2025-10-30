@@ -42,6 +42,7 @@ const nextConfig = {
   // Experimental features for better performance
   experimental: {
     optimizePackageImports: ['react-hook-form', '@hookform/resolvers', 'framer-motion'],
+    optimizeCss: true, // Enable CSS optimization for better performance
   },
 
   // Module transpilation
