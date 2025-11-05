@@ -61,19 +61,69 @@ export default function Home() {
 
   const caseStudies = [
     {
-      title: "Inter announce Socios.com as new front of shirt partner.",
-      description: "Read More",
-      link: "https://www.socios.com/a-new-era-begins-inter-announce-socios-com-as-new-front-of-shirt-partner-for-2021-22-season/"
+      title: "PSG announce first blockchain partnership to increase fan engagement",
+      image: "https://www.cityam.com/wp-content/uploads/2019/05/paris-saint-germain-v-rsc-anderlecht-uefa-champions-league-868738656-5b991c6a75c3f.jpg",
+      link: "https://www.cityam.com/psg-announce-first-blockchain-partnership-increase-fan/"
     },
     {
-      title: "Official Partner of Liga Serie A",
-      description: "Read More",
-      link: "https://www.socios.com/lega-serie-a-announce-socios-com-partnership/"
+      title: "PSG News: Blockchain & Cryptocurrency Deal with Socios",
+      image: "https://www.sportspro.com/wp-content/uploads/2019/04/PSG-1024x576.jpg",
+      link: "https://www.sportspro.com/news/psg-news-blockchain-cryptocurrency-deal-socios/"
     },
     {
-      title: "Blockchain-powered fan engagement.-",
-      description: "Read More",
-      link: "https://www.socios.com/7-teams-in-7-days-blockchain-powered-fan-engagement-giants-socios-com-set-for-major-us-growth/"
+      title: "Manchester City launch Fan Token with Socios",
+      image: "https://www.mancity.com/-/media/images/shared/news/2020/march/socios-launch-manchester-city-fan-token.ashx",
+      link: "https://www.mancity.com/news/club/socios-launch-manchester-city-fan-token-63751737"
+    },
+    {
+      title: "Arsenal fan token revealed by Socios platform as industry continues expansion",
+      image: "https://assets.goal.com/images/v3/bltb2fe8c6eb3bff946/b399a1f58d71b9586b52f1ca960027ee60c6be6f.jpg?width=1400&upscale=true",
+      link: "https://www.goal.com/en/news/arsenal-fan-token-revealed-by-socios-platform-as-industry-continues-expansion/5trvurykbh391fr21ye63bjud"
+    },
+    {
+      title: "Lionel Messi signs $20m deal with crypto firm Socios to promote digital fan tokens",
+      image: "https://a.espncdn.com/photo/2018/0915/r431380_1296x729_16-9.jpg",
+      link: "https://www.espn.com/soccer/story/_/id/37626840/lionel-messi-signs-20m-deal-crypto-firm-socios-promote-digital-fan-tokens-report"
+    },
+    {
+      title: "Napoli and Socios.com expand their partnership: more benefits through the $NAP Fan Token",
+      image: "https://cdn.sscnapoli.it/wp-content/uploads/2024/12/WebDesktopSociosPARTNE-1.jpg",
+      link: "https://sscnapoli.it/en/napoli-and-socios-com-expand-their-partnership-more-benefits-through-the-nap-fan-token/"
+    },
+    {
+      title: "FC Barcelona launch first ever blockchain partnership with Chiliz",
+      image: "https://imageio.forbes.com/specials-images/imageserve/5e450dd0e961e10007f1ee64/0x0.jpg",
+      link: "https://www.forbes.com/sites/tomsanderson/2020/02/13/fc-barcelona-launch-first-ever-blockchain-partnership-with-chiliz/"
+    },
+    {
+      title: "Benfica join crypto craze with Socios",
+      image: "https://www.reuters.com/resizer/v2/7VD43UMPDZO3LKLBOJDNRMN3HM.jpg",
+      link: "https://www.reuters.com/lifestyle/sports/benfica-join-crypto-craze-with-socios-2022-06-07/"
+    },
+    {
+      title: "Atlético de Madrid join Socios.com platform",
+      image: "https://img-estaticos.atleticodemadrid.com//system/file5s/57927/medium2/DxywTCwy52_foto_1.jpg?1567707026",
+      link: "https://en.atleticodemadrid.com/noticias/atletico-de-madrid-join-socios-com-platform"
+    },
+    {
+      title: "Socios.com replaces Pirelli as front jersey sponsor of Serie A champions Inter Milan",
+      image: "https://imageio.forbes.com/specials-images/imageserve/60f80c0d3f4e2ef5d82f8c5e/0x0.jpg",
+      link: "https://www.forbes.com/sites/danieleproch/2021/07/21/socioscom-replaces-pirelli-as-front-jersey-sponsor-of-serie-a-champions-inter-milan/"
+    },
+    {
+      title: "Inter Milan announce Socios.com as shirt sponsor",
+      image: "https://www.sportspro.com/wp-content/uploads/2021/05/inter-milan-socios.jpg",
+      link: "https://www.sportspro.com/news/inter-milan-shirt-sponsor-socios-fan-tokens-pirelli/"
+    },
+    {
+      title: "AC Milan joins sports crypto movement with launch of $ACM Fan Token on Socios.com",
+      image: "https://assets-eu-01.kc-usercontent.com:443/1293c890-579f-01b7-8480-902cca7de55e/cd5a6d0e-a8b8-412b-a686-d622303282fc/2021.01.18-Comunicato-Socios-WebHP.png",
+      link: "https://www.acmilan.com/en/news/articles/sponsor/2021-01-18/ac-milan-joins-sports-crypto-movement-with-launch-of-acm-fan-token-on-socios-com"
+    },
+    {
+      title: "Socios.com signs new global partnership with Juventus",
+      image: "https://cdn.sportbusiness.com/2021/09/juventus-socios.jpg",
+      link: "https://sponsorship.sportbusiness.com/news/socios-com-signs-new-global-partnership-with-juventus/"
     },
   ]
 
@@ -389,31 +439,68 @@ export default function Home() {
             OUR CASE STUDIES.
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {caseStudies.map((caseStudy, index) => (
-              <a
-                key={index}
-                href={caseStudy.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-lg overflow-hidden hover:opacity-80 transition-opacity"
-              >
-                <div className="relative aspect-video">
-                  <Image
-                    src={`/case-study-${index + 1}.webp`}
-                    alt={caseStudy.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    loading="lazy"
-                    className="object-cover"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="mb-2 text-white" style={{ fontSize: '16px', fontWeight: '600' }}>{caseStudy.title}</h3>
-                  <p className="text-sm text-accent-pink">{caseStudy.description}</p>
-                </div>
-              </a>
-            ))}
+          {/* Horizontal Scrolling Carousel */}
+          <div className="relative overflow-x-auto scrollbar-hide" id="case-studies-carousel">
+            <style jsx>{`
+              .scrollbar-hide::-webkit-scrollbar {
+                display: none;
+              }
+            `}</style>
+
+            <div className="flex gap-8 pb-4" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+              {caseStudies.map((caseStudy, index) => (
+                <a
+                  key={index}
+                  href={caseStudy.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-shrink-0 w-[320px] md:w-[380px] rounded-lg overflow-hidden hover:opacity-80 transition-opacity"
+                >
+                  <div className="relative aspect-video w-full">
+                    <Image
+                      src={caseStudy.image}
+                      alt={caseStudy.title}
+                      fill
+                      sizes="(max-width: 768px) 320px, 380px"
+                      loading="lazy"
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="p-6" style={{ backgroundColor: 'rgba(49, 0, 77, 0.5)' }}>
+                    <h3 className="mb-2 text-white" style={{ fontSize: '16px', fontWeight: '600' }}>{caseStudy.title}</h3>
+                    <p className="text-sm text-accent-pink">Read More</p>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Navigation Arrows */}
+          <div className="flex justify-center mt-8 gap-4">
+            <button
+              onClick={() => {
+                const carousel = document.getElementById('case-studies-carousel')
+                if (carousel) carousel.scrollBy({ left: -400, behavior: 'smooth' })
+              }}
+              className="w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors"
+              aria-label="Previous case study"
+            >
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="white">
+                <path d="M12.5 15L7.5 10L12.5 5" stroke="white" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+            <button
+              onClick={() => {
+                const carousel = document.getElementById('case-studies-carousel')
+                if (carousel) carousel.scrollBy({ left: 400, behavior: 'smooth' })
+              }}
+              className="w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors"
+              aria-label="Next case study"
+            >
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="white">
+                <path d="M7.5 5L12.5 10L7.5 15" stroke="white" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
           </div>
         </div>
       </section>
