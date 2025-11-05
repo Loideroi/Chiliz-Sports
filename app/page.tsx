@@ -62,67 +62,67 @@ export default function Home() {
   const caseStudies = [
     {
       title: "PSG announce first blockchain partnership to increase fan engagement",
-      image: "https://www.cityam.com/wp-content/uploads/2019/05/paris-saint-germain-v-rsc-anderlecht-uefa-champions-league-868738656-5b991c6a75c3f.jpg",
+      image: "/case-study-psg-cityam.webp",
       link: "https://www.cityam.com/psg-announce-first-blockchain-partnership-increase-fan/"
     },
     {
       title: "PSG News: Blockchain & Cryptocurrency Deal with Socios",
-      image: "https://www.sportspro.com/wp-content/uploads/2019/04/PSG-1024x576.jpg",
+      image: "/case-study-psg-sportspro.webp",
       link: "https://www.sportspro.com/news/psg-news-blockchain-cryptocurrency-deal-socios/"
     },
     {
       title: "Manchester City launch Fan Token with Socios",
-      image: "https://www.mancity.com/-/media/images/shared/news/2020/march/socios-launch-manchester-city-fan-token.ashx",
+      image: "/case-study-mancity.webp",
       link: "https://www.mancity.com/news/club/socios-launch-manchester-city-fan-token-63751737"
     },
     {
       title: "Arsenal fan token revealed by Socios platform as industry continues expansion",
-      image: "https://assets.goal.com/images/v3/bltb2fe8c6eb3bff946/b399a1f58d71b9586b52f1ca960027ee60c6be6f.jpg?width=1400&upscale=true",
+      image: "/case-study-arsenal.webp",
       link: "https://www.goal.com/en/news/arsenal-fan-token-revealed-by-socios-platform-as-industry-continues-expansion/5trvurykbh391fr21ye63bjud"
     },
     {
       title: "Lionel Messi signs $20m deal with crypto firm Socios to promote digital fan tokens",
-      image: "https://a.espncdn.com/photo/2018/0915/r431380_1296x729_16-9.jpg",
+      image: "/case-study-messi.webp",
       link: "https://www.espn.com/soccer/story/_/id/37626840/lionel-messi-signs-20m-deal-crypto-firm-socios-promote-digital-fan-tokens-report"
     },
     {
       title: "Napoli and Socios.com expand their partnership: more benefits through the $NAP Fan Token",
-      image: "https://cdn.sscnapoli.it/wp-content/uploads/2024/12/WebDesktopSociosPARTNE-1.jpg",
+      image: "/case-study-napoli.webp",
       link: "https://sscnapoli.it/en/napoli-and-socios-com-expand-their-partnership-more-benefits-through-the-nap-fan-token/"
     },
     {
       title: "FC Barcelona launch first ever blockchain partnership with Chiliz",
-      image: "https://imageio.forbes.com/specials-images/imageserve/5e450dd0e961e10007f1ee64/0x0.jpg",
+      image: "/case-study-barcelona.webp",
       link: "https://www.forbes.com/sites/tomsanderson/2020/02/13/fc-barcelona-launch-first-ever-blockchain-partnership-with-chiliz/"
     },
     {
       title: "Benfica join crypto craze with Socios",
-      image: "https://www.reuters.com/resizer/v2/7VD43UMPDZO3LKLBOJDNRMN3HM.jpg",
+      image: "/case-study-benfica.webp",
       link: "https://www.reuters.com/lifestyle/sports/benfica-join-crypto-craze-with-socios-2022-06-07/"
     },
     {
       title: "Atlético de Madrid join Socios.com platform",
-      image: "https://img-estaticos.atleticodemadrid.com//system/file5s/57927/medium2/DxywTCwy52_foto_1.jpg?1567707026",
+      image: "/case-study-atletico.webp",
       link: "https://en.atleticodemadrid.com/noticias/atletico-de-madrid-join-socios-com-platform"
     },
     {
       title: "Socios.com replaces Pirelli as front jersey sponsor of Serie A champions Inter Milan",
-      image: "https://imageio.forbes.com/specials-images/imageserve/60f80c0d3f4e2ef5d82f8c5e/0x0.jpg",
+      image: "/case-study-inter-forbes.webp",
       link: "https://www.forbes.com/sites/danieleproch/2021/07/21/socioscom-replaces-pirelli-as-front-jersey-sponsor-of-serie-a-champions-inter-milan/"
     },
     {
       title: "Inter Milan announce Socios.com as shirt sponsor",
-      image: "https://www.sportspro.com/wp-content/uploads/2021/05/inter-milan-socios.jpg",
+      image: "/case-study-inter-sportspro.webp",
       link: "https://www.sportspro.com/news/inter-milan-shirt-sponsor-socios-fan-tokens-pirelli/"
     },
     {
       title: "AC Milan joins sports crypto movement with launch of $ACM Fan Token on Socios.com",
-      image: "https://assets-eu-01.kc-usercontent.com:443/1293c890-579f-01b7-8480-902cca7de55e/cd5a6d0e-a8b8-412b-a686-d622303282fc/2021.01.18-Comunicato-Socios-WebHP.png",
+      image: "/case-study-acmilan.webp",
       link: "https://www.acmilan.com/en/news/articles/sponsor/2021-01-18/ac-milan-joins-sports-crypto-movement-with-launch-of-acm-fan-token-on-socios-com"
     },
     {
       title: "Socios.com signs new global partnership with Juventus",
-      image: "https://cdn.sportbusiness.com/2021/09/juventus-socios.jpg",
+      image: "/case-study-juventus.webp",
       link: "https://sponsorship.sportbusiness.com/news/socios-com-signs-new-global-partnership-with-juventus/"
     },
   ]
@@ -466,8 +466,8 @@ export default function Home() {
                       className="object-cover"
                     />
                   </div>
-                  <div className="p-6" style={{ backgroundColor: 'rgba(49, 0, 77, 0.5)' }}>
-                    <h3 className="mb-2 text-white" style={{ fontSize: '16px', fontWeight: '600' }}>{caseStudy.title}</h3>
+                  <div className="p-6" style={{ backgroundColor: 'rgba(49, 0, 77, 0.5)', minHeight: '132px' }}>
+                    <h3 className="mb-2 text-white line-clamp-3" style={{ fontSize: '16px', fontWeight: '600', lineHeight: '1.5' }}>{caseStudy.title}</h3>
                     <p className="text-sm text-accent-pink">Read More</p>
                   </div>
                 </a>
