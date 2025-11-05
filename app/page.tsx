@@ -173,13 +173,13 @@ export default function Home() {
             Sports sponsorship isn&apos;t about luck. It&apos;s about knowing who to call, what to say, and how to close. At Chiliz Sports, we&apos;ve sat on your side of the table, so we know the risks, the shortcuts, and the people who actually move the needle.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link href="#contact" className="btn-primary">
               LET&apos;S TALK
             </Link>
-            <Link href="#access-is-everything" className="btn-secondary inline-flex items-center gap-2">
-              LEARN MORE
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" className="animate-bounce">
+            <Link href="#access-is-everything" className="btn-secondary inline-flex items-center justify-center gap-2">
+              <span>LEARN MORE</span>
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" className="flex-shrink-0">
                 <path d="M8 12L3 7L4.4 5.6L8 9.2L11.6 5.6L13 7L8 12Z"/>
               </svg>
             </Link>
