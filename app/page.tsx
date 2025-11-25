@@ -213,7 +213,7 @@ export default function Home() {
       <section id="access-is-everything" className="section-padding bg-white">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="relative aspect-square rounded-lg overflow-hidden order-2 lg:order-1">
+            <div className="relative aspect-video rounded-lg overflow-hidden order-2 lg:order-1">
               <Image
                 src="/access-is-everything-2.webp"
                 alt="Access is Everything - Chiliz Sports team connections"
@@ -366,7 +366,7 @@ export default function Home() {
               </Link>
             </div>
 
-            <div className="relative aspect-square rounded-lg overflow-hidden">
+            <div className="relative aspect-video rounded-lg overflow-hidden">
               <Image
                 src="/insider-expertise.webp"
                 alt="Insider Expertise - Chiliz Sports team at work"
@@ -384,7 +384,7 @@ export default function Home() {
       <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="relative aspect-[4/3] rounded-lg overflow-hidden order-2 lg:order-1">
+            <div className="relative aspect-video rounded-lg overflow-hidden order-2 lg:order-1">
               <Image
                 src="/deals-that-delivers.webp"
                 alt="Deals That Deliver - Chiliz Sports"
